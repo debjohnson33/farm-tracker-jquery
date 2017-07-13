@@ -1,0 +1,2 @@
+class BabyAnimal < ApplicationRecord
+end

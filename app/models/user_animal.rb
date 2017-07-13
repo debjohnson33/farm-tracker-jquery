@@ -1,0 +1,2 @@
+class UserAnimal < ApplicationRecord
+end
