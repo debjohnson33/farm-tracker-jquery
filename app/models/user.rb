@@ -5,6 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, :omniauth_providers => [:facebook]
 
+  has_many :farms
+  has_many :user_animals
+  has_many :animals, through: :user_animals
+  
   def self.from_omniauth(auth)
 	where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
     	user.email = auth.info.email
