@@ -10,7 +10,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170712195952) do
+ActiveRecord::Schema.define(version: 20170713020311) do
+
+  create_table "animals", force: :cascade do |t|
+    t.string "name"
+    t.string "age"
+    t.string "sex"
+    t.string "color"
+    t.integer "weight"
+    t.boolean "pregnant", default: false
+    t.date "date_bred"
+    t.date "estimated_due_date"
+    t.integer "area_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "areas", force: :cascade do |t|
+    t.string "name"
+    t.integer "farm_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "baby_animals", force: :cascade do |t|
+    t.string "name"
+    t.string "age"
+    t.string "sex"
+    t.string "color"
+    t.integer "weight"
+    t.integer "animal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "farms", force: :cascade do |t|
+    t.string "name"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_animals", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "animal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
