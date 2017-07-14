@@ -11,12 +11,17 @@ RSpec.describe User, type: :model do
 		expect(@user).to be_valid
 	end
 
+	it "is not valid without a password" do
+		expect(User.new(email: "email@mail.com")).not_to be_valid
+	end		
+
 
 	context 'associations' do
 		
 		it "has many farms" do
 			expect(@user.farms.count).to eq(2)
 		end
+
 	end
 
 
