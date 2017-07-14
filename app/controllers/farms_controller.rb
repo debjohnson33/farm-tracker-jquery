@@ -9,11 +9,12 @@ class FarmsController < ApplicationController
 
 	def new
 		@farm = Farm.new
+		@user = current_user
 	end
 
 	def create
 		@farm = Farm.create(farm_params)
-		redirect_to farm_path(@farm)
+		render :show
 	end
 
 
