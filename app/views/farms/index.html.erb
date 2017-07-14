@@ -1,5 +1,4 @@
-<h1>Farms for <%= @user.email %></h1>
+<h1>Farms</h1>
 <% @farms.each do |farm| %>
-	<%= farm.name %><br>
-
+	<%= link_to farm.name, farm_path(farm) %><br>
 <% end %>
