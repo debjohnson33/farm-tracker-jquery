@@ -9,6 +9,7 @@
 @sapps = Farm.create(name: "Sapps Farm", user_id: @user.id)
 @roberts = Farm.create(name: "Roberts Farm", user_id: @user.id)
 @goat_pen = Area.create(name: "Goat Pen", farm_id: @sapps.id, area_type: "Pen", capacity: 20, quantity: 16)
+@pig_pen = Area.create(name: "Pig Pen", farm_id: @sapps.id, area_type: "Pen", capacity: 6, quantity: 4)
 @cocoa = Animal.create(
 	name: "Cocoa", 
 	age: "1 year", 
