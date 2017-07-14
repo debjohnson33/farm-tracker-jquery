@@ -3,6 +3,6 @@
 <%= form_for @farm do |f| %>
 	<%= f.label :name %>
 	<%= f.text_field :name %>
-	<%= f.hidden_field @farm.user_id, :value => @user.id %>
+	<%= f.hidden_field :user_id, :value => current_user.id %>
 	<%= f.submit %>
 <% end %>

@@ -13,8 +13,14 @@ class FarmsController < ApplicationController
 	end
 
 	def create
-		@farm = Farm.create(farm_params)
-		render :show
+		
+		@farm = Farm.new(farm_params)
+		# raise params.inspect
+		if @farm.save
+			redirect_to farm_path(@farm)
+		else
+			redirect_to farms_path
+		end
 	end
 
 
