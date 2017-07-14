@@ -31,8 +31,8 @@ RSpec.describe User, type: :model do
 			area_id: @goat_pen.id,
 			animal_type: "goat" 
 			)
-		@user_animal1 = UserAnimal.create(@user.id, @cocoa.id)
-		@user_animal2 = UserAnimal.create(@user.id, @cocoa2.id)
+		@user_animal1 = UserAnimals.create(@user.id, @cocoa.id)
+		@user_animal2 = UserAnimals.create(@user.id, @cocoa2.id)
 	end
 
 	it "is valid with an email and password" do
