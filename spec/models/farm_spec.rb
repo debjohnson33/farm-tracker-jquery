@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
+RSpec.describe Farm, type: :model do
 	before(:each) do
 		@user = User.create(email: "test@email.com", password: "password")
 		@sapps = Farm.create(name: "Sapps Farm", user_id: @user.id)
@@ -34,29 +34,28 @@ RSpec.describe User, type: :model do
 			)
 	end
 
-	it "is valid with an name and user_id" do
+	it "is valid with a name and user_id" do
 		expect(@user).to be_valid
 	end
 
-	it "is not valid without a password" do
-		expect(User.new(email: "email@mail.com")).not_to be_valid
+	it "is not valid without a user_id" do
+		expect(Farm.new(name: "Sipsee Farm")).not_to be_valid
 	end		
 
 
 	context 'associations' do
 		
-		it "has many farms" do
+		it "belongs to user" do
 			expect(@user.farms.count).to eq(2)
 		end
 
-		it "has many animals through farms" do
-			expect(@user.animals.first).to eq(@cocoa)
-			expect(@user.animals.second).to eq(@cocoa2)
+		it "has many areas" do
+			expect(@sapps.areas.count).to eq(2)
 		end
 
-		it "has many areas through farms" do
-			expect(@user.areas.first).to eq(@goat_pen)
-			expect(@user.areas.second).to eq(@pig_pen)
+		it "has many animals through areas" do
+			expect(@sapps.areas.animals.first).to eq(@cocoa)
+			expect(@sapps.areas.animals.second).to eq(@cocoa2)
 		end
 
 	end
