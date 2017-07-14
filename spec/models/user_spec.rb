@@ -31,8 +31,6 @@ RSpec.describe User, type: :model do
 			area_id: @goat_pen.id,
 			animal_type: "goat" 
 			)
-		@user_animal1 = UserAnimals.create(@user.id, @cocoa.id)
-		@user_animal2 = UserAnimals.create(@user.id, @cocoa2.id)
 	end
 
 	it "is valid with an email and password" do
@@ -50,7 +48,7 @@ RSpec.describe User, type: :model do
 			expect(@user.farms.count).to eq(2)
 		end
 
-		it "has many animals through user animals" do
+		it "has many animals through farms" do
 			expect(@user.animals.first).to eq(@cocoa)
 			expect(@user.animals.second).to eq(@cocoa2)
 		end

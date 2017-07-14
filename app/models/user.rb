@@ -6,6 +6,7 @@ class User < ApplicationRecord
   devise :omniauthable, :omniauth_providers => [:facebook]
 
   has_many :farms
+  has_many :areas, through: :farms
   has_many :animals, through: :farms
   
   def self.from_omniauth(auth)
