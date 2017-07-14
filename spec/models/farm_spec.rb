@@ -54,8 +54,8 @@ RSpec.describe Farm, type: :model do
 		end
 
 		it "has many animals through areas" do
-			expect(@sapps.areas.animals.first).to eq(@cocoa)
-			expect(@sapps.areas.animals.second).to eq(@cocoa2)
+			expect(@sapps.areas.first.animals.count).to eq(2)
+			
 		end
 
 	end
