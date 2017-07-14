@@ -58,7 +58,7 @@ RSpec.describe Area, type: :model do
 	end
 
 	it "is not valid without a animal_id" do
-		expect(Area.new(name: "Goat Pen")).not_to be_valid
+		expect(Area.create(name: "Goat Pen")).not_to be_valid
 	end		
 
 

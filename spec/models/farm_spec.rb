@@ -39,7 +39,7 @@ RSpec.describe Farm, type: :model do
 	end
 
 	it "is not valid without a user_id" do
-		expect(Farm.new(name: "Sipsee Farm")).not_to be_valid
+		expect(Farm.create(name: "Sipsee Farm")).not_to be_valid
 	end		
 
 

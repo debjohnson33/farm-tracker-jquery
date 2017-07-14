@@ -39,7 +39,7 @@ RSpec.describe User, type: :model do
 	end
 
 	it "is not valid without a password" do
-		expect(User.new(email: "email@mail.com")).not_to be_valid
+		expect(User.create(email: "email@mail.com")).not_to be_valid
 	end		
 
 
