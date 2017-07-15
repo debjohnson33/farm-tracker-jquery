@@ -6,5 +6,11 @@ class Farm < ApplicationRecord
 	validates :name, presence: true
 	validates :name, uniqueness: true
 	validates :user_id, presence: true
+
+	def areas_attributes=(areas_attributes)
+		areas_attributes.each do |area_attributes|
+			self.areas.build(area_attributes)
+		end
+	end
 	
 end

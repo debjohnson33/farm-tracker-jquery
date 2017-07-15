@@ -27,6 +27,6 @@ class FarmsController < ApplicationController
 	private
 
 	def farm_params
-		params.require(:farm).permit(:name, :user_id)
+		params.require(:farm).permit(:name, :user_id, areas_attributes: [:name, :area_type])
 	end
 end
