@@ -10,6 +10,7 @@ class Farm < ApplicationRecord
 	def areas_attributes=(areas_attributes)
 		areas_attributes.each do |area_attributes|
 			self.areas.build(area_attributes)
+			raise area_attributes.inspect
 		end
 	end
 	

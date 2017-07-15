@@ -10,12 +10,14 @@ class FarmsController < ApplicationController
 	def new
 		@farm = Farm.new
 		@user = current_user
+		@farm.areas.build
+		@farm.areas.build
 	end
 
 	def create
 		
 		@farm = Farm.new(farm_params)
-		 raise params.inspect
+		# raise params.inspect
 		if @farm.save
 			redirect_to farm_path(@farm)
 		else
@@ -27,6 +29,15 @@ class FarmsController < ApplicationController
 	private
 
 	def farm_params
-		params.require(:farm).permit(:name, :user_id, areas_attributes: [:name, :area_type])
+		params.require(:farm).permit(
+			:name, 
+			:user_id, 
+			:areas_attributes => [
+				:name, 
+				:area_type,
+				:capacity, 
+				:quantity
+			]
+		)
 	end
 end
