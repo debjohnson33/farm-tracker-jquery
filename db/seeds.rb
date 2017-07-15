@@ -7,7 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 @user = User.create(email: "test@email.com", password: "password")
 @sapps = Farm.create(name: "Sapps Farm", user_id: @user.id)
-@roberts = Farm.create(name: "Roberts Farm", user_id: @user.id)
 @goat_pen = Area.create(name: "Goat Pen", farm_id: @sapps.id, area_type: "Pen", capacity: 20, quantity: 16)
 @pig_pen = Area.create(name: "Pig Pen", farm_id: @sapps.id, area_type: "Pen", capacity: 6, quantity: 4)
 @cocoa = Animal.create(
@@ -35,3 +34,23 @@
 	area_id: @goat_pen.id,
 	animal_type: "goat" 
 	)
+
+@baby_cocoa = BabyAnimal.create(
+	name: "Baby Cocoa", 
+	age: "1 year", 
+	sex: "female", 
+	color: "white and tan", 
+	weight: 120,  
+	animal_id: @cocoa.id,
+	animal_type: "goat" 
+	)
+
+@baby_cocoa2 = BabyAnimal.create(
+	name: "Baby Cocoa2", 
+	age: "1 year", 
+	sex: "female", 
+	color: "white and tan", 
+	weight: 120, 
+	animal_id: @cocoa.id,
+	animal_type: "goat" 
+	)	
