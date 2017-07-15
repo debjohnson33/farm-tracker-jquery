@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Area, type: :model do
+RSpec.describe Animal, type: :model do
 	before(:each) do
 		@user = User.create(email: "test@email.com", password: "password")
 		@sapps = Farm.create(name: "Sapps Farm", user_id: @user.id)
@@ -53,28 +53,23 @@ RSpec.describe Area, type: :model do
 			)		
 	end
 
-	it "is valid with a name and farm_id" do
-		expect(@goat_pen).to be_valid
+	it "is valid with a name and area id" do
+		expect(@cocoa).to be_valid
 	end
 
-	it "is not valid without a farm_id" do
-		expect(Area.create(name: "Goat Pen")).not_to be_valid
-	end		
+	it "is not valid without an area id and animal type" do
+		expect(Animal.create(name: "Jack")).not_to be_valid
+	end
 
 
 	context 'associations' do
 		
-		it "belongs to farm" do
-			expect(@sapps.areas.count).to eq(2)
+		it "belongs to area" do
+			expect(@goat_pen.animals.count).to eq(2)
 		end
 
-		it "has many animals" do
-			expect(@sapps.areas.first.animals.count).to eq(2)
-		end
-
-		it "has many baby animals through animals" do
-			expect(@goat_pen.animals.first.baby_animals.count).to eq(2)
-			
+		it "has many baby animals" do
+			expect(@cocoa.baby_animals.count).to eq(2)
 		end
 
 	end
