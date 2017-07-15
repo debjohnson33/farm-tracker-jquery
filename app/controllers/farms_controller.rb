@@ -15,7 +15,7 @@ class FarmsController < ApplicationController
 	def create
 		
 		@farm = Farm.new(farm_params)
-		# raise params.inspect
+		 raise params.inspect
 		if @farm.save
 			redirect_to farm_path(@farm)
 		else
