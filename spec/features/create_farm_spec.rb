@@ -2,14 +2,16 @@ require 'rails_helper'
 
 feature 'Add a Farm' do
 	scenario 'able to create a farm' do
+		user = User.create(email: "test@email.com", password: "password")
 		#1 Go to home page and find a sign in link
 		visit '/'
 		#2 Click on link "Sign in" and get to sign in page
 		click_link "Sign in"
-		fill_in "user_email", with: "test@email.com"
-		fill_in "user_password", with: "password"
+		fill_in "user_email", with: user.email
+		fill_in "user_password", with: user.password
 		#3 Click on "Sign in" button and get to farms index
 		click_button "Log in"
+		expect(page).to have_content("Farms")
 		#4 Click on "Add farm" and get to new farm form
 		click_link "Add Farm"
 
