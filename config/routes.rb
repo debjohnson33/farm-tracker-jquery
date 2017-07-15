@@ -4,9 +4,11 @@ Rails.application.routes.draw do
   
   root 'home#index'
 
-  resources :farms
-  resources :areas
-  resources :animals
-  resources :baby_animals
+  resources :farms, shallow: true do
+  	resources :areas
+	resources :animals
+	resources :baby_animals
+  end
+
   
 end
