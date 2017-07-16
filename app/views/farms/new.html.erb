@@ -1,10 +1,10 @@
 <h2>Create a New Farm</h2>
 
 <%= form_for @farm do |f| %>
-	<%= f.label :name %>
+	<%= f.label 'Farm Name:' %>
 	<%= f.text_field :name %><br>
 	<%= f.hidden_field :user_id, :value => current_user.id %>
-	<h3>Create a New Area:</h3>
+	<h3>Create New Areas:</h3>
 	<%= f.fields_for :areas do |area| %>
 		<%= area.label :name %>
 		<%= area.text_field :name %><br>
@@ -18,7 +18,7 @@
 		<%= area.label :quantity %>
 		<%= area.number_field :quantity %><br><br>
 
-		<%# need farm_id %>
+		<%= area.hidden_field :farm_id %>
 	<% end %>
 
 	<%= f.submit %>
