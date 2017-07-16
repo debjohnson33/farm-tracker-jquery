@@ -9,7 +9,6 @@ class Farm < ApplicationRecord
 
 	def areas_attributes=(areas_attributes)
 		areas_attributes.each do |area_attributes|
-			raise params.inspect
 			self.areas.build(area_attributes)
 		end
 	end
