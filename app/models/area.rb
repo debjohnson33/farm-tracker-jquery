@@ -1,5 +1,5 @@
 class Area < ApplicationRecord
-	belongs_to :farm
+	belongs_to :farm, inverse_of: :areas
 	has_many :animals
 	has_many :baby_animals, through: :animals
 

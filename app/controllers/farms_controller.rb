@@ -20,12 +20,8 @@ class FarmsController < ApplicationController
 	def create
 		
 		@farm = Farm.new(farm_params)
-		@farm.save
-		#@farm.areas.each do |area|
-		#	area.farm_id = @farm.id
-		#	raise params.inspect
-		#end
-		if @farm
+		
+		if @farm.save
 			redirect_to farm_path(@farm)
 		else
 			render :new

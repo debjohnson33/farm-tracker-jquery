@@ -1,6 +1,6 @@
 class Farm < ApplicationRecord
-	belongs_to :user, inverse_of: :user
-	has_many :areas
+	belongs_to :user, inverse_of: :farms
+	has_many :areas, inverse_of: :farm
 	has_many :animals, through: :areas
 
 	validates :name, presence: true

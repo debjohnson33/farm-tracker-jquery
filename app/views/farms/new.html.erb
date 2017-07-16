@@ -5,21 +5,21 @@
 	<%= f.text_field :name %><br>
 	<%= f.hidden_field :user_id, :value => current_user.id %>
 	<h3>Create New Areas:</h3>
-	<%#= f.fields_for :areas do |area| %>
-		<%#= area.label :name %>
-		<%#= area.text_field :name %><br>
+	<%= f.fields_for :areas do |area| %>
+		<%= area.label :name %>
+		<%= area.text_field :name %><br>
 		
-		<%#= area.label :area_type %>
-		<%#= area.text_field :area_type %><br>
+		<%= area.label :area_type %>
+		<%= area.text_field :area_type %><br>
 
-		<%#= area.label :capacity %>
-		<%#= area.number_field :capacity %><br>
+		<%= area.label :capacity %>
+		<%= area.number_field :capacity %><br>
 
-		<%#= area.label :quantity %>
-		<%#= area.number_field :quantity %><br><br>
+		<%= area.label :quantity %>
+		<%= area.number_field :quantity %><br><br>
 
-		<%#= area.hidden_field :farm_id, :value => @farm.id %>
-	<%# end %>
+		<%= area.hidden_field :farm_id, :value => @farm.id %>
+	<% end %>
 
 	<%= f.submit %>
 <% end %>
