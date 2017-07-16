@@ -1,5 +1,5 @@
 class Farm < ApplicationRecord
-	belongs_to :user
+	belongs_to :user, inverse_of: :user
 	has_many :areas
 	has_many :animals, through: :areas
 

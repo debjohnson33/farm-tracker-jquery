@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, :omniauth_providers => [:facebook]
 
-  has_many :farms
+  has_many :farms, inverse_of: :user
   has_many :areas, through: :farms
   has_many :animals, through: :farms
   
