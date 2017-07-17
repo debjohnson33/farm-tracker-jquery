@@ -7,5 +7,5 @@ class Animal < ApplicationRecord
 	validates :sex, presence: true
 	validates :color, presence: true
 	validates :weight, presence: true
-	validates :area_id, presence: true
+
 end

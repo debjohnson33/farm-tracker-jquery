@@ -6,5 +6,5 @@ class BabyAnimal < ApplicationRecord
 	validates :sex, presence: true
 	validates :color, presence: true
 	validates :weight, presence: true
-	validates :animal_id, presence: true
+
 end

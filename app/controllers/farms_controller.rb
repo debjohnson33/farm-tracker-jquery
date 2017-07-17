@@ -5,9 +5,7 @@ class FarmsController < ApplicationController
 
 	def show
 		@farm = Farm.find(params[:id])
-		if @farm.areas.last.try(:name)
-			@farm.areas.build
-		end
+		@areas = Area.all
 	end
 
 	def new
@@ -41,7 +39,6 @@ class FarmsController < ApplicationController
 				:area_type,
 				:capacity, 
 				:quantity,
-				:farm_id
 			]
 		)
 	end
