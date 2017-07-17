@@ -9,7 +9,13 @@ class Farm < ApplicationRecord
 
 	def areas_attributes=(areas_attributes)
 		areas_attributes.each do |i, area_attributes|
-			self.areas.build(area_attributes)
+			area_attributes.each do |attribute|
+				if attribute.empty?
+					# how do ignore the blank attributes?
+				else 
+					self.areas.build(area_attributes)
+				end
+			end
 		end
 	end
 	
