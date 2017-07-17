@@ -25,13 +25,23 @@ class FarmsController < ApplicationController
 
 	def edit
 		set_farm
-		@farm.areas.build
+		if @farm.areas.count < 1
+			@farm.areas.build
+		end
 	end
 
 	def update
 		set_farm
 		@farm.update(farm_params)
 		redirect_to farm_path(@farm)
+	end
+
+	def destroy
+		set_farm
+		@areas = @farm.areas
+		@areas.destroy
+		@farm.destroy
+		redirect_to farms_path
 	end
 
 
