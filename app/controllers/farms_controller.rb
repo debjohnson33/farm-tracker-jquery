@@ -24,8 +24,8 @@ class FarmsController < ApplicationController
 	end
 
 	def edit
-		@farm = Farm.find(params[:id])	
-		#raise params.inspect	
+		set_farm
+		@farm.areas.build
 	end
 
 	def update
