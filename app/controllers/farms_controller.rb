@@ -5,7 +5,6 @@ class FarmsController < ApplicationController
 
 	def show
 		@farm = Farm.find(params[:id])
-		@areas = Area.all
 	end
 
 	def new

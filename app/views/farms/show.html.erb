@@ -1,1 +1,11 @@
-<%= @farm.name %>
+<%= @farm.name %><br>
+<ul>
+	<% @farm.areas.each do |area| %>
+		<li>Animal Area: <%= area.name %></li>		
+		<li>Area Type: <%= area.area_type %></li>
+		<li>Area Capacity: <%= area.capacity %></li>
+		<li>Area Quantity: <%= area.quantity %></li><br>
+	<% end %>
+</ul>
+
+	
