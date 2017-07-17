@@ -24,7 +24,8 @@ class FarmsController < ApplicationController
 	end
 
 	def edit
-		set_farm		
+		@farm = Farm.find(params[:id])	
+		#raise params.inspect	
 	end
 
 	def update
@@ -50,6 +51,6 @@ class FarmsController < ApplicationController
 	end
 
 	def set_farm
-		@farm = Farm.find_by(params[:id])
+		@farm = Farm.find(params[:id])
 	end
 end
