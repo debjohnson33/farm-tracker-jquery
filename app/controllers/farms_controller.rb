@@ -15,14 +15,22 @@ class FarmsController < ApplicationController
 	end
 
 	def create
-		
 		@farm = Farm.new(farm_params)
-		
 		if @farm.save
 			redirect_to farm_path(@farm)
 		else
 			render :new
 		end
+	end
+
+	def edit
+		set_farm		
+	end
+
+	def update
+		set_farm
+		@farm.update(farm_params)
+		redirect_to farm_path(@farm)
 	end
 
 
@@ -33,12 +41,15 @@ class FarmsController < ApplicationController
 			:name,
 			:user_id, 
 			:areas_attributes => [
-				:id,
 				:name, 
 				:area_type,
 				:capacity, 
 				:quantity,
 			]
 		)
+	end
+
+	def set_farm
+		@farm = Farm.find_by(params[:id])
 	end
 end
