@@ -4,7 +4,7 @@ class FarmsController < ApplicationController
 	end
 
 	def show
-		@farm = Farm.find(params[:id])
+		set_farm
 	end
 
 	def new
@@ -52,12 +52,12 @@ class FarmsController < ApplicationController
 			:name,
 			:user_id, 
 			:areas_attributes => [
-				:id,
+				#:id,
 				:name, 
 				:area_type,
 				:capacity, 
 				:quantity,
-				:farm_id
+				#:farm_id
 			]
 		)
 	end
