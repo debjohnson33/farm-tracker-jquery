@@ -52,10 +52,12 @@ class FarmsController < ApplicationController
 			:name,
 			:user_id, 
 			:areas_attributes => [
+				:id,
 				:name, 
 				:area_type,
 				:capacity, 
 				:quantity,
+				:farm_id
 			]
 		)
 	end
