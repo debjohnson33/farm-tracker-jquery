@@ -5,9 +5,7 @@ class Area < ApplicationRecord
 
 	validates :name, presence: true
 
-	scope :space_available, -> { where(:availability > 0) }
-
-	def self.availability
+	def availability
 		self.capacity - self.quantity
 	end
 end
