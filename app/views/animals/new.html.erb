@@ -1,0 +1,23 @@
+<% form_for @animal, url: new_farm_animal_path do |f| %>
+
+	<%= f.label :name %>
+	<%= f.text_field :name %><br>
+
+	<%= f.label :age %>
+	<%= f.text_field :age %><br>
+
+	<%= f.label :sex %>
+	<%= f.text_field :sex %><br>
+
+	<%= f.label :color %>
+	<%= f.text_field :color %><br>
+
+	<%= f.label :weight %>
+	<%= f.text_field :weight %><br>
+
+	<%= f.label :pregnant %>
+	<%= f.check_box :pregnant %><br>
+
+	<%= f.submit %>
+
+<% end %>
