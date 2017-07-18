@@ -6,15 +6,17 @@ class AnimalsController < ApplicationController
 	end
 
 	def new
-		@farm = Farm.find([params[:farm_id]])
+		@farm = Farm.find(params[:farm_id])
 	end
 
 	def create
+		@farm = Farm.find(params[:farm_id])
+		@areas = @farm.areas.all
 		@animal = Animal.new(animal_params)
 		if @animal.save
 			redirect_to animal_path(@animal)
 		else
-			render new_farm_animal_path(@animal)
+			render farm_animals_path(@animal)
 		end
 	end
 
@@ -34,8 +36,6 @@ class AnimalsController < ApplicationController
 			:pregnant,
 			:date_bred,
 			:estimated_due_date,
-			:area_id
-			]
 		)
 	end
 end

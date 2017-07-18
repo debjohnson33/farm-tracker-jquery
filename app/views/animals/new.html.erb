@@ -1,5 +1,5 @@
 <h2>Add a New Animal</h2>
-<%= form_for Animal.new, :url => new_farm_animal_path(@farm, Animal.new) do |f| %>
+<%= form_for Animal.new, :url => farm_animals_path(@farm, Animal.new) do |f| %>
 
 	<%= f.label :name %>
 	<%= f.text_field :name %><br><br>
@@ -27,6 +27,8 @@
 
 	<%= f.label :estimated_due_date %>
 	<%= f.date_select :estimated_due_date, :order => [:month, :day, :year] %><br><br>
+
+	<%= f.collection_check_boxes(:farm, :area_ids, @areas, :id, :name) %>
 
 	<%= f.submit %>
 
