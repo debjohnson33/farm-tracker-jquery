@@ -16,9 +16,14 @@
 		<%= area.number_field :capacity %><br>
 
 		<%= area.label :quantity %>
-		<%= area.number_field :quantity %><br><br>
+		<%= area.number_field :quantity %><br>
 
 		<%= area.hidden_field :farm_id, :value => @farm.id %>
+
+		<%= area.label :_destroy, "Delete this Area" %>
+		<%= area.check_box :_destroy %><br><br>
+		
+
 	<% end %>
 
 	<%= f.submit %>
