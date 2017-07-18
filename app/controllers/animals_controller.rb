@@ -7,6 +7,6 @@ class AnimalsController < ApplicationController
 
 	def new
 		@farm = Farm.find([params[:farm_id]])
-		@animal = Animal.new
+		
 	end
 end
