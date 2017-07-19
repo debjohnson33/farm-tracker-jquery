@@ -7,11 +7,11 @@ class AnimalsController < ApplicationController
 
 	def new
 		@farm = Farm.find(params[:farm_id])
+		@areas = @farm.areas.all
 	end
 
 	def create
 		@farm = Farm.find(params[:farm_id])
-		@areas = @farm.areas.all
 		@animal = Animal.new(animal_params)
 		if @animal.save
 			redirect_to animal_path(@animal)
