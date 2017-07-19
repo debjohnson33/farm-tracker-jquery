@@ -13,6 +13,7 @@ class AnimalsController < ApplicationController
 	def create
 		@farm = Farm.find(params[:farm_id])
 		@animal = Animal.new(animal_params)
+		@animal.area_id = @farm[area_ids]
 		if @animal.save
 			redirect_to animal_path(@animal)
 		else
