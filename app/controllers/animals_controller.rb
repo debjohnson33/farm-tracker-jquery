@@ -11,6 +11,8 @@ class AnimalsController < ApplicationController
 	def new
 		@farm = Farm.find(params[:farm_id])
 		@areas = @farm.areas.all
+		@animal = Animal.new
+		@animal.baby_animals.build
 	end
 
 	def create
