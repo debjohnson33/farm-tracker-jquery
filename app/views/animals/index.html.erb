@@ -1,8 +1,19 @@
-<h1>Farm Animals of <% @farm %></h1>
+<h1>Farm Animals of <%= @farm.name %></h1>
 
 <% @animals.each do |animal| %>
-	<%= animal.name %>
-	<%= animal.age %>
-	<%= animal.sex %>
+	Animal Name: <%= animal.name %><br>
+	Age: <%= animal.age %><br>
+	Sex: <%= animal.sex %><br>
+	Color: <%= animal.color %><br>
+	Weight: <%= animal.weight %><br>
+	Type: <%= animal.animal_type %><br>
+	Pregnant?: <%= animal.pregnant %><br>
+	<% if animal.pregnant == true %>
+		Date bred: <%= animal.date_bred %><br>
+		Estimated due date: <%= animal.estimated_due_date %><br>
+	<% end %>
+	Area: <%= animal.area.name %><br><br>
+
+
 
 <% end %> 
