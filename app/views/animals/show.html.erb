@@ -12,3 +12,13 @@
 		Estimated due date: <%= @animal.estimated_due_date %><br>
 	<% end %>
 	Area: <%= @animal.area.name %><br><br>
+
+<h4>Babies (if applicable):</h4>
+
+	<% @animal.baby_animals.each do |baby_animal| %>
+		Name: <%= baby_animal.name %><br>
+		Sex: <%= baby_animal.sex %><br>
+		Color: <%= baby_animal.color %><br>
+		Weight: <%= baby_animal.weight %><br>
+		Type: <%= baby_animal.animal_type %><br>
+	<% end %>
