@@ -1,3 +1,14 @@
 <h2>Your New Animal:</h2>
 
-<%= @animal.name %>
+<h3><%= @animal.name %></h3>
+	Age: <%= @animal.age %><br>
+	Sex: <%= @animal.sex %><br>
+	Color: <%= @animal.color %><br>
+	Weight: <%= @animal.weight %><br>
+	Type: <%= @animal.animal_type %><br>
+	Pregnant?: <%= @animal.pregnant %><br>
+	<% if @animal.pregnant == true %>
+		Date bred: <%= @animal.date_bred %><br>
+		Estimated due date: <%= @animal.estimated_due_date %><br>
+	<% end %>
+	Area: <%= @animal.area.name %><br><br>
