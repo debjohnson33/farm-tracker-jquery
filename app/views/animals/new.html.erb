@@ -30,7 +30,7 @@
 
 	<%= collection_radio_buttons :animal, :area_id, @areas, :id, :name %>
 	<h3>Create a New Baby Animal:</h3>
-	<%= f.fields_for :baby_animals do |baby_animal| %>
+	<%= f.fields_for :baby_animals, BabyAnimal.new do |baby_animal| %>
 		<%= baby_animal.label :name %>
 		<%= baby_animal.text_field :name %><br>
 		
@@ -38,16 +38,16 @@
 		<%= baby_animal.text_field :age %><br>
 
 		<%= baby_animal.label :sex %>
-		<%= baby_animal.number_field :sex %><br>
+		<%= baby_animal.text_field :sex %><br>
 
 		<%= baby_animal.label :color %>
-		<%= baby_animal.number_field :color %><br>
+		<%= baby_animal.text_field :color %><br>
 
 		<%= baby_animal.label :weight %>
 		<%= baby_animal.number_field :weight %><br>
 
 		<%= baby_animal.label :animal_type %>
-		<%= baby_animal.number_field :animal_type %><br><br>
+		<%= baby_animal.text_field :animal_type %><br><br>
 
 		<%= baby_animal.hidden_field :animal_id, :value => @animal.id %>
 	<% end %>

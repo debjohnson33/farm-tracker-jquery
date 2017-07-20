@@ -11,4 +11,10 @@ class Animal < ApplicationRecord
 	scope :goat, -> { where(animal_type: "goat") }
 	scope :large, -> { where('weight > ?', 100) }
 
+	def baby_animals_attributes=(baby_animals_attributes)
+		baby_animals_attributes.values.each do |baby_animal_attributes|
+			self.baby_animals.build(baby_animal_attributes)
+		end
+	end
+
 end

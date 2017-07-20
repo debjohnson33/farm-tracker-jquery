@@ -16,6 +16,7 @@ class AnimalsController < ApplicationController
 	end
 
 	def create
+		#raise params.inspect
 		@farm = Farm.find(params[:farm_id])
 		@animal = Animal.new(animal_params)
 		area = Area.find(params[:animal][:area_id])
@@ -49,6 +50,17 @@ class AnimalsController < ApplicationController
 			:pregnant,
 			:date_bred,
 			:estimated_due_date,
+			:baby_animals_attributes => [
+				:id,
+				:name,
+				:animal_id, 
+				:age,
+				:sex, 
+				:color,
+				:weight,
+				:animal_type
+			]
+
 		)
 	end
 end
