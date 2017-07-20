@@ -17,8 +17,13 @@ class AnimalsController < ApplicationController
 		@farm = Farm.find(params[:farm_id])
 		@animal = Animal.new(animal_params)
 		area = Area.find(params[:animal][:area_id])
-		area.quantity += 1
+		
+		if area.quantity < area.capacity
+			area.quantity += 1
+		end
+		
 		area.save
+		
 		if @animal.save
 			redirect_to animal_path(@animal)
 		else
