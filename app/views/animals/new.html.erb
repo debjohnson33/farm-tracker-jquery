@@ -28,7 +28,7 @@
 	<%= f.label :estimated_due_date %>
 	<%= f.date_select :estimated_due_date, :order => [:month, :day, :year] %><br><br>
 
-	<%= collection_radio_buttons :farm, :area_ids, @areas, :id, :name %>
+	<%= collection_radio_buttons :animal, :area_id, @areas, :id, :name %>
 
 	<%= f.submit %>
 

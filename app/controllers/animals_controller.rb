@@ -1,8 +1,11 @@
 class AnimalsController < ApplicationController
 	def index
-		#raise params.inspect
 		@farm = Farm.find(params[:farm_id])
 		@animals = @farm.animals
+	end
+
+	def show
+		@animal = Animal.find(params[:id])
 	end
 
 	def new
@@ -13,7 +16,9 @@ class AnimalsController < ApplicationController
 	def create
 		@farm = Farm.find(params[:farm_id])
 		@animal = Animal.new(animal_params)
-		@animal.area_id = @farm[area_ids]
+		area = Area.find(params[:animal][:area_id])
+		area.quantity += 1
+		area.save
 		if @animal.save
 			redirect_to animal_path(@animal)
 		else
