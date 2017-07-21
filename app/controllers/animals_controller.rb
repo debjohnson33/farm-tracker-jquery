@@ -22,7 +22,11 @@ class AnimalsController < ApplicationController
 		area = Area.find(params[:animal][:area_id])
 		
 		if area.quantity < area.capacity
-			area.quantity += 1
+			if params[:animal][:baby_animals_attributes][:name] != ""
+				area.quantity += 2
+			else
+				area.quantity += 1
+			end
 		end
 		
 		area.save

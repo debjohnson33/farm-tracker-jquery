@@ -13,7 +13,9 @@ class Animal < ApplicationRecord
 
 	def baby_animals_attributes=(baby_animals_attributes)
 		baby_animals_attributes.values.each do |baby_animal_attributes|
-			self.baby_animals.build(baby_animal_attributes)
+			if baby_animal_attributes.valid? && !baby_animal_attributes.blank?
+				self.baby_animals.build(baby_animal_attributes)
+			end	
 		end
 	end
 
