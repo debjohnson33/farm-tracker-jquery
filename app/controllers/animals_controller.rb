@@ -16,7 +16,7 @@ class AnimalsController < ApplicationController
 	end
 
 	def create
-		#raise params.inspect
+		
 		@farm = Farm.find(params[:farm_id])
 		@animal = Animal.new(animal_params)
 		area = Area.find(params[:animal][:area_id])
@@ -30,7 +30,7 @@ class AnimalsController < ApplicationController
 		end
 		
 		area.save
-		
+		#raise params.inspect
 		if @animal.save
 			redirect_to animal_path(@animal)
 		else
