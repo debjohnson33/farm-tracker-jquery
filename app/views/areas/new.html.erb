@@ -1,0 +1,18 @@
+	<h3>Create a New Area:</h3>
+	<%= form_for :areas do |f| %>
+		<%= f.label :name %>
+		<%= f.text_field :name %><br>
+		
+		<%= f.label :area_type %>
+		<%= f.text_field :area_type %><br>
+
+		<%= f.label :capacity %>
+		<%= f.number_field :capacity %><br>
+
+		<%= f.label :quantity %>
+		<%= f.number_field :quantity %><br><br>
+
+		<%= f.hidden_field :farm_id, :value => @farm.id %>
+
+		<%= f.submit %>
+	<% end %>
