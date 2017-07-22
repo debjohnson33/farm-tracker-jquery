@@ -27,12 +27,12 @@ class AreasController < ApplicationController
 	end
 
 	def edit
-		@farm = Farm.find(params[:farm_id])
 		@area = Area.find(params[:id])
-		raise params.inspect
+		@farm = Farm.find(@area.farm_id)
 	end
 
 	def update
+		@area = Area.find(params[:id])
 		@area.update(area_params)
 		redirect_to area_path(@area)
 	end
