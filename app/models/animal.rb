@@ -21,6 +21,7 @@ class Animal < ApplicationRecord
 
 	def erase_empty_baby_animals
 		self.baby_animals = self.baby_animals.select { |b| b.name != ''}
+		#self = self.select { |a| a.name != ''}
 	end
 
 end
