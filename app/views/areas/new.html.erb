@@ -1,5 +1,5 @@
 	<h3>Create a New Area:</h3>
-	<%= form_for @area do |f| %>
+	<%= form_for @area, url: farm_areas_path, method: :post do |f| %>
 		<%= f.label :name %>
 		<%= f.text_field :name %><br>
 		
