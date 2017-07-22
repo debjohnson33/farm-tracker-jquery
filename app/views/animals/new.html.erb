@@ -28,7 +28,9 @@
 	<%= f.label :estimated_due_date %>
 	<%= f.date_select :estimated_due_date, :order => [:month, :day, :year] %><br><br>
 
-	<%= collection_radio_buttons :animal, :area_id, @areas, :id, :name %>
+	<h3>Select an Area:</h3>
+	<%= collection_radio_buttons :animal, :area_id, Area.all, :id, :name %>
+
 	<h3>Create a New Baby Animal:</h3>
 	<%= f.fields_for :baby_animals, BabyAnimal.new do |baby_animal| %>
 		<%= baby_animal.label :name %>

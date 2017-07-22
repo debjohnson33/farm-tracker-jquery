@@ -16,25 +16,24 @@ class AnimalsController < ApplicationController
 	end
 
 	def create
-		
 		@farm = Farm.find(params[:farm_id])
 		@animal = Animal.new(animal_params)
-		area = Area.find(params[:animal][:area_id])
-		
-		if area.quantity < area.capacity
-			if params[:animal][:baby_animals_attributes][:name] != nil
-				area.quantity += 2
-			else
-				area.quantity += 1
+		if @animal.name != ''
+			area = Area.find(params[:animal][:area_id])
+			if area.quantity < area.capacity
+				if params[:animal][:baby_animals_attributes][:name] != nil
+					area.quantity += 2
+				else
+					area.quantity += 1
+				end
+				area.save
 			end
 		end
-		
-		area.save
-		#raise params.inspect
+
 		if @animal.save
 			redirect_to animal_path(@animal)
 		else
-			render new_farm_animal_path(@farm.id, @animal)
+			render :new
 		end
 	end
 
