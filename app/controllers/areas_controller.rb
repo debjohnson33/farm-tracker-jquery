@@ -4,13 +4,17 @@ class AreasController < ApplicationController
 		@farm = Farm.find(params[:farm_id])
 		@areas = @farm.areas	
 	end
-	
+
 	def new
 		@farm = Farm.find(params[:farm_id])
+		@area = Area.new
+	#	raise params.inspect
 	end
 
 	def create
+		
 		@area = Area.new(area_params)
+
 		if @area.save
 			redirect_to area_path(@area)
 		else
