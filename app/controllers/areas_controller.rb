@@ -8,7 +8,6 @@ class AreasController < ApplicationController
 	def new
 		@farm = Farm.find(params[:farm_id])
 		@area = Area.new
-	#	raise params.inspect
 	end
 
 	def create
@@ -35,6 +34,13 @@ class AreasController < ApplicationController
 		@area = Area.find(params[:id])
 		@area.update(area_params)
 		redirect_to area_path(@area)
+	end
+
+	def destroy
+		@area = Area.find(params[:id])
+		@farm = Farm.find(@area.farm_id)
+		@area.destroy
+		render farm_path(@farm)
 	end
 
 

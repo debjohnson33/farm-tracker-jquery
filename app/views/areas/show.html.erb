@@ -4,4 +4,6 @@
 	Capacity: <%= @area.capacity %><br>
 	Quantity: <%= @area.quantity %><br><br>
 
-<%= link_to 'Edit Area', edit_area_path(@area) %>
+<%= link_to 'Edit Area', edit_area_path(@area) %><br><br>
+<%= link_to 'Farms', farms_path %><br><br>
+<%= link_to 'Delete Area', area_path(@area), method: :delete %>
