@@ -2,4 +2,6 @@
 
 <% @animals.each do |animal| %>
 	Animal Name: <%= link_to animal.name, animal_path(animal) %><br>
-<% end %> 
+<% end %><br><br> 
+
+<%= link_to 'Back to Farm', farm_path(@farm) %><br><br>
