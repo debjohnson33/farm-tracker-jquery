@@ -39,6 +39,7 @@ class AnimalsController < ApplicationController
 
 	def edit
 		@animal = Animal.find(params[:id])
+		@baby_animals = @animal.baby_animals
 		@farm = @animal.area.farm
 		@areas = @farm.areas
 	end
