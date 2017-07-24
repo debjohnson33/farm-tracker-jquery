@@ -15,11 +15,11 @@ class Animal < ApplicationRecord
 
 	def baby_animals_attributes=(baby_animals_attributes)
 		baby_animals_attributes.each do |i, baby_animal_attributes|
-			if baby_animal_attributes[:_destroy] == "1"
-				self.baby_animals_attributes.clear
-			else
+			#if baby_animal_attributes[:_destroy].present?
+			#	baby_animal_attributes.clear
+			#else
 				self.baby_animals.build(baby_animal_attributes)	
-			end
+			#end
 		end
 	end
 

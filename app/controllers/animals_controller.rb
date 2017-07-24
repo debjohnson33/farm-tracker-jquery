@@ -42,6 +42,7 @@ class AnimalsController < ApplicationController
 		@baby_animals = @animal.baby_animals
 		@farm = @animal.area.farm
 		@areas = @farm.areas
+		@animal.baby_animals.build
 	end
 
 	def update

@@ -52,9 +52,8 @@
 		<%= baby_animal.text_field :animal_type %><br><br>
 
 		<%= baby_animal.hidden_field :animal_id, :value => @animal.id %>
+		
 
-		<%= baby_animal.label :_destroy, "Delete this Baby Animal" %>
-		<%= baby_animal.check_box :_destroy %><br><br>
 	<% end %>
 
 	<%= f.submit %>
