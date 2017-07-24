@@ -25,3 +25,4 @@
 
 	<%= link_to 'Farm', farm_path(@animal.area.farm) %><br><br>
 	<%= link_to 'Edit Animal', edit_animal_path(@animal) %><br><br>
+	<%= link_to 'Delete Animal', animal_path(@animal), method: :delete %>
