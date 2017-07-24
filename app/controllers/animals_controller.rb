@@ -37,6 +37,18 @@ class AnimalsController < ApplicationController
 		end
 	end
 
+	def edit
+		@animal = Animal.find(params[:id])
+		@farm = @animal.area.farm
+		@areas = @farm.areas
+	end
+
+	def update
+		@animal = Animal.find(params[:id])
+		@animal.update(animal_params)
+		redirect_to animal_path(@animal)
+	end
+
 
 	private
 

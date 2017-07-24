@@ -7,6 +7,7 @@
 		<li>Area Quantity: <%= area.quantity %></li><br>
 	<% end %>
 </ul>
+<%= link_to 'Animals', farm_animals_path(@farm) %><br><br>
 <%= link_to 'Add Area', new_farm_area_path(@farm.id) %><br><br>
 <%= link_to 'Add Animal', new_farm_animal_path(@farm.id) %><br><br>
 <%= link_to 'Farms', farms_path %><br><br>
