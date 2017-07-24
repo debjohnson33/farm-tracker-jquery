@@ -79,7 +79,8 @@ class AnimalsController < ApplicationController
 				:sex, 
 				:color,
 				:weight,
-				:animal_type
+				:animal_type,
+				:_destroy
 			]
 
 		)
