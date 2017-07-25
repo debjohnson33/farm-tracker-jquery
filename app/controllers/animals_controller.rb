@@ -39,10 +39,13 @@ class AnimalsController < ApplicationController
 
 	def edit
 		@animal = Animal.find(params[:id])
-		@baby_animals = @animal.baby_animals
+		if @animal.baby_animals.count > 0
+			@baby_animals = @animal.baby_animals
+		else
+			@animal.baby_animals.build
+		end
 		@farm = @animal.area.farm
-		@areas = @farm.areas
-		@animal.baby_animals.build
+		@areas = @farm.areas	
 	end
 
 	def update
