@@ -15,6 +15,6 @@ class Farm < ApplicationRecord
 	end
 
 	def erase_empty_areas
-		self.areas = self.areas.select {|a| a.name != ''}		
+		self.areas = self.areas.select {|a| a.name && a.name != ''}		
 	end
 end
