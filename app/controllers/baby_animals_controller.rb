@@ -1,7 +1,7 @@
 class BabyAnimalsController < ApplicationController
 	def index
-		@farm = Farm.find(params[:id])
-		@baby_animals = @farm.baby_animals
+		@farm = Farm.find(params[:farm_id])
+		@animals = @farm.animals
 	end
 
 	def edit
