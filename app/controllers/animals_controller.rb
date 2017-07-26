@@ -71,19 +71,7 @@ class AnimalsController < ApplicationController
 			:animal_type,
 			:pregnant,
 			:date_bred,
-			:estimated_due_date,
-			:baby_animals_attributes => [
-				:id,
-				:name,
-				:animal_id, 
-				:age,
-				:sex, 
-				:color,
-				:weight,
-				:animal_type,
-				:_destroy
-			]
-
+			:estimated_due_date
 		)
 	end
 end
