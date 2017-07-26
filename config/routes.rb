@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   resources :farms, shallow: true do
   	resources :areas
 	resources :animals
-	resources :baby_animals
   end
 
   

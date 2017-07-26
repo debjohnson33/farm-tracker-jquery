@@ -34,23 +34,3 @@
 	area_id: @goat_pen.id,
 	animal_type: "goat" 
 	)
-
-@baby_cocoa = BabyAnimal.create(
-	name: "Baby Cocoa", 
-	age: "1 year", 
-	sex: "female", 
-	color: "white and tan", 
-	weight: 120,  
-	animal_id: @cocoa.id,
-	animal_type: "goat" 
-	)
-
-@baby_cocoa2 = BabyAnimal.create(
-	name: "Baby Cocoa2", 
-	age: "1 year", 
-	sex: "female", 
-	color: "white and tan", 
-	weight: 120, 
-	animal_id: @cocoa.id,
-	animal_type: "goat" 
-	)	
