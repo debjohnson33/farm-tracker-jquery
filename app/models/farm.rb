@@ -5,16 +5,16 @@ class Farm < ApplicationRecord
 
 	validates :name, presence: true
 	validates :name, uniqueness: true
+
+	before_save :erase_empty_areas
 	
 	def areas_attributes=(areas_attributes)
 		areas_attributes.each do |i, area_attributes|
-			if area_attributes[:_destroy] == '1'
-				area_attributes.each do |a|
-					a.delete
-				end
-			else
-				self.areas.build(area_attributes)
-			end
+			self.areas.build(area_attributes)
 		end
+	end
+
+	def erase_empty_areas
+		self.areas = self.areas.select {|a| a.name != ''}		
 	end
 end
