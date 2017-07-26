@@ -38,9 +38,8 @@ class AreasController < ApplicationController
 
 	def destroy
 		@area = Area.find(params[:id])
-		@farm = Farm.find(@area.farm_id)
 		@area.destroy
-		render farm_path(@farm)
+		redirect_to farms_path
 	end
 
 
