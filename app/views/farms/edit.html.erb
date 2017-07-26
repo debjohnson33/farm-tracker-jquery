@@ -1,9 +1,7 @@
 <h2>Edit a Farm</h2>
 
 <%= form_for @farm do |f| %>
-	<%= f.label 'Farm Name:' %>
-	<%= f.text_field :name %><br>
-	<%= f.hidden_field :user_id, :value => current_user.id %>
+	<%= render 'form', f: f %>
 	<h3>Edit Areas:</h3>
 	<%= f.fields_for :areas do |area| %>
 		<%= area.label :name %>
