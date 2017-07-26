@@ -1,5 +1,5 @@
 <h2>Edit:</h2>
-<%= form_for @animal, :url => animal_path(@animal), method: :patch do |f| %>
+<%= form_for @animal do |f| %>
 
 	<%= f.label :name %>
 	<%= f.text_field :name %><br><br>
@@ -31,8 +31,8 @@
 	<h3>Select an Area:</h3>
 	<%= collection_radio_buttons :animal, :area_id, @areas, :id, :name %><br><br>
 
-	<h3>Create a New Baby Animal:</h3>
-	<%= f.fields_for :baby_animals, @baby_animals do |baby_animal| %>
+	<h3>Edit Baby Animal:</h3>
+	<%= f.fields_for :baby_animals do |baby_animal| %>
 		<%= baby_animal.label :name %>
 		<%= baby_animal.text_field :name %><br>
 		
