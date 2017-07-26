@@ -31,6 +31,8 @@ class AnimalsController < ApplicationController
 		end
 
 		if @animal.save
+			fba = FarmBabyAnimal.new(farm_id: @farm.id, baby_animal_id: baby_animal.id)
+			fba.save
 			redirect_to animal_path(@animal)
 		else
 			render :new
