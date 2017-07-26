@@ -13,17 +13,6 @@
 	<% end %>
 	Area: <%= @animal.area.name %><br><br>
 
-<h4>Babies (if applicable):</h4>
-
-	<% @animal.baby_animals.each do |baby_animal| %>
-		Name: <%= baby_animal.name %><br>
-		Sex: <%= baby_animal.sex %><br>
-		Color: <%= baby_animal.color %><br>
-		Weight: <%= baby_animal.weight %><br>
-		Type: <%= baby_animal.animal_type %><br><br>
-	<% end %><br><br>
-
-	<%= link_to 'Edit Baby Animal', edit_baby_animal_path %><br><br>
 	<%= link_to 'Back to Farm', farm_path(@animal.area.farm) %><br><br>
 	<%= link_to 'Edit Animal', edit_animal_path(@animal) %><br><br>
 	<%= link_to 'Delete Animal', animal_path(@animal), method: :delete %>
