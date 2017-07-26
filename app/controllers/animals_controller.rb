@@ -12,7 +12,6 @@ class AnimalsController < ApplicationController
 		@farm = Farm.find(params[:farm_id])
 		@areas = @farm.areas.all
 		@animal = Animal.new
-		@animal.baby_animals.build
 	end
 
 	def create
@@ -35,11 +34,6 @@ class AnimalsController < ApplicationController
 
 	def edit
 		@animal = Animal.find(params[:id])
-		if @animal.baby_animals.count > 0
-			@baby_animals = @animal.baby_animals
-		else
-			@animal.baby_animals.build
-		end
 		@farm = @animal.area.farm
 		@areas = @farm.areas	
 	end
