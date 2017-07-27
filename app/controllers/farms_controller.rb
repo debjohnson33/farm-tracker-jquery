@@ -19,6 +19,7 @@ class FarmsController < ApplicationController
 		if @farm.save
 			redirect_to farm_path(@farm)
 		else
+			flash[:alert] = "Farm not created. Fill in all fields."
 			render :new
 		end
 	end
@@ -32,8 +33,12 @@ class FarmsController < ApplicationController
 
 	def update
 		set_farm
-		@farm.update(farm_params)
-		redirect_to farm_path(@farm)
+		if @farm.update(farm_params)
+			redirect_to farm_path(@farm)
+		else
+			flash[:alert] = "Farm could not be updated"
+			render :edit
+		end
 	end
 
 	def destroy
@@ -52,6 +57,7 @@ class FarmsController < ApplicationController
 			:name,
 			:user_id, 
 			:areas_attributes => [
+				:id,
 				:name, 
 				:area_type,
 				:capacity, 

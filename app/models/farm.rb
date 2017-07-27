@@ -5,8 +5,6 @@ class Farm < ApplicationRecord
 
 	validates :name, presence: true
 	validates :name, uniqueness: true
-
-	before_save :erase_empty_areas
 	
 	def areas_attributes=(areas_attributes)
 		areas_attributes.each do |i, area_attributes|
@@ -14,7 +12,4 @@ class Farm < ApplicationRecord
 		end
 	end
 
-	def erase_empty_areas
-		self.areas = self.areas.select {|a| a.name && a.name != ''}		
-	end
 end
