@@ -1,11 +1,11 @@
 <h2>Edit a Farm</h2>
 
-<%= form_for @farm do |f| %>
+<%= form_for @farm, url: farm_path, method: :patch do |f| %>
 	
 		<%= render 'form', f: f %>
 	
 	<h3>Edit Areas:</h3>
-	<%= f.fields_for :areas do |area| %>
+	<%= f.fields_for :areas, url: area_path, method: :patch do |area| %>
 	
 		<%= render 'area_fields', area: area %>
 	
