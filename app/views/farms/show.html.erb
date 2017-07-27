@@ -1,10 +1,8 @@
 <%= @farm.name %><br>
 <ul>
 	<% @farm.areas.each do |area| %>
-		<li>Animal Area: <%= link_to area.name, area_path(area.id) %></li>		
-		<li>Area Type: <%= area.area_type %></li>
-		<li>Area Capacity: <%= area.capacity %></li>
-		<li>Area Quantity: <%= area.quantity %></li><br>
+		
+		<%= render '/areas/area_details', area: area %>
 	<% end %>
 </ul>
 <%= link_to 'Animals', farm_animals_path(@farm) %><br><br>
