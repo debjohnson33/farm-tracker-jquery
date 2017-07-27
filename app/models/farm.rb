@@ -4,7 +4,7 @@ class Farm < ApplicationRecord
 	has_many :animals, through: :areas
 
 	validates :name, presence: true
-	validates :name, uniqueness: true
+	#validates :name, uniqueness: true
 
 	before_save :erase_empty_areas
 	
