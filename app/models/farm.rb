@@ -5,11 +5,14 @@ class Farm < ApplicationRecord
 
 	validates :name, presence: true
 	validates :name, uniqueness: true
+
+	accepts_nested_attributes_for :areas
 	
-	def areas_attributes=(areas_attributes)
-		areas_attributes.each do |i, area_attributes|
-			self.areas.build(area_attributes)
-		end
-	end
+	#def areas_attributes=(areas)
+	#	areas.each do |area|
+	#		self.area = Area.find_or_create_by(name: area.name)
+	#		self.area.update(area)
+	#	end
+	#end
 
 end
