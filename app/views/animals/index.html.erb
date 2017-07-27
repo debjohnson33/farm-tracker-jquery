@@ -9,4 +9,9 @@
 	Name: <%= l.name %>
 <% end %><br><br>
 
+<h2>Smallest Animals (less than or equal to 100 pounds):</h2>
+<% @small_animals.each do |s| %>
+	Name: <%= s.name %>
+<% end %><br><br>
+
 <%= link_to 'Back to Farm', farm_path(@farm) %><br><br>

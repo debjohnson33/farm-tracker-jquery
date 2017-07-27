@@ -7,9 +7,6 @@ class Animal < ApplicationRecord
 	validates :color, presence: true
 	validates :weight, presence: true
 
-	scope :goat, -> { where(animal_type: "goat") }
 	scope :large, -> { where('weight > ?', 100) }
-
-
-
+	scope :small, -> { where('weight <= ?', 100)}
 end

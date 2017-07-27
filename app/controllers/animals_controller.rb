@@ -3,6 +3,7 @@ class AnimalsController < ApplicationController
 		@farm = Farm.find(params[:farm_id])
 		@animals = @farm.animals
 		@large_animals = @farm.animals.large
+		@small_animals = @farm.animals.small
 	end
 
 	def show

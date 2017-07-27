@@ -11,9 +11,7 @@
 		Date bred: <%= @animal.date_bred.strftime("%b %d, %Y") %><br>
 		Estimated due date: <%= @animal.estimated_due_date.strftime("%b %d, %Y") %><br>
 	<% end %>
-	<%# if @animal.large %>
-	<!--	<h3>Large <%#= @animal.type %></h3>
-	<%# end %> -->
+
 	Area: <%= @animal.area.name %><br><br>
 
 	<%= link_to 'Back to Farm', farm_path(@animal.area.farm) %><br><br>
