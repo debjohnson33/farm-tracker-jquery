@@ -8,8 +8,8 @@
 	Type: <%= @animal.animal_type %><br>
 	Pregnant?: <%= @animal.pregnant %><br>
 	<% if @animal.pregnant == true %>
-		Date bred: <%= @animal.date_bred.strftime("%b %d, %Y") %><br>
-		Estimated due date: <%= @animal.estimated_due_date.strftime("%b %d, %Y") %><br>
+		Date bred: <%= formatted_bred_date(@animal) %><br>
+		Estimated due date: <%= formatted_due_date(@animal) %><br>
 	<% end %>
 
 	Area: <%= @animal.area.name %><br><br>
