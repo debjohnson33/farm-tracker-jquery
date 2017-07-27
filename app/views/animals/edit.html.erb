@@ -1,5 +1,5 @@
 <h2>Edit:</h2>
-<%= form_for @animal do |f| %>
+<%= form_for @animal, url: animal_path, method: :patch do |f| %>
 
 	<%= render 'animal_fields', f: f %>
 
