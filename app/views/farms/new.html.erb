@@ -1,22 +1,15 @@
 <h2>Create a New Farm</h2>
 
 <%= form_for @farm do |f| %>
-	<%= render 'form', f: f %>
+
+		<%= render 'form', f: f %>
+
 	<h3>Create New Areas:</h3>
+
 	<%= f.fields_for :areas do |area| %>
-		<%= area.label :name %>
-		<%= area.text_field :name %><br>
-		
-		<%= area.label :area_type %>
-		<%= area.text_field :area_type %><br>
 
-		<%= area.label :capacity %>
-		<%= area.number_field :capacity %><br>
+		<%= render 'area_fields', area: area %>
 
-		<%= area.label :quantity %>
-		<%= area.number_field :quantity %><br><br>
-
-		<%= area.hidden_field :farm_id, :value => @farm.id %>
 	<% end %>
 
 	<%= f.submit %>
