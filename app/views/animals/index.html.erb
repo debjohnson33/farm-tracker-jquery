@@ -4,4 +4,9 @@
 	Animal Name: <%= link_to animal.name, animal_path(animal) %><br>
 <% end %><br><br> 
 
+<h2>Largest Animals (over 100 pounds):</h2>
+<% @large_animals.each do |l| %>
+	Name: <%= l.name %>
+<% end %><br><br>
+
 <%= link_to 'Back to Farm', farm_path(@farm) %><br><br>

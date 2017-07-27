@@ -2,6 +2,7 @@ class AnimalsController < ApplicationController
 	def index
 		@farm = Farm.find(params[:farm_id])
 		@animals = @farm.animals
+		@large_animals = @farm.animals.large
 	end
 
 	def show
