@@ -9,8 +9,11 @@ class Farm < ApplicationRecord
 	accepts_nested_attributes_for :areas
 	
 	def areas_attributes=(areas_attributes)
-		areas_attributes.each do |i, area_attributes|
-			self.areas.build(area_attributes)
+		areas_attributes.values.each do |area_attributes|
+			area = Area.find_by(name: area_attributes[:name])
+			if area
+				self.areas << area unless self.areas.include?(area)
+			end
 		end
 	end
 
