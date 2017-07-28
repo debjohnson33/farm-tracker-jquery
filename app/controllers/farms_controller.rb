@@ -65,7 +65,6 @@ class FarmsController < ApplicationController
 				:capacity, 
 				:quantity,
 				:farm_id,
-				:_destroy
 			]
 		)
 	end

@@ -54,7 +54,6 @@ class AreasController < ApplicationController
 			:capacity, 
 			:quantity,
 			:farm_id,
-			:_destroy
 		)
 	end
 end

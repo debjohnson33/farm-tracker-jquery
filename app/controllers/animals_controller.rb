@@ -25,7 +25,7 @@ class AnimalsController < ApplicationController
 				area.quantity += 1
 				area.save
 			end
-				end
+		end
 
 		if @animal.save
 			flash[:notice] = "Animal was created."
