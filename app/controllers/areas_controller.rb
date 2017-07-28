@@ -15,8 +15,10 @@ class AreasController < ApplicationController
 		@area = Area.new(area_params)
 
 		if @area.save
+			flash[:notice] = "Area was created."
 			redirect_to area_path(@area)
 		else
+			flash[:alert] = "Area could not be created. Fill in all fields."
 			render :new
 		end
 	end
@@ -33,12 +35,14 @@ class AreasController < ApplicationController
 	def update
 		@area = Area.find(params[:id])
 		@area.update(area_params)
+		flash[:notice] = "Area was updated."
 		redirect_to area_path(@area)
 	end
 
 	def destroy
 		@area = Area.find(params[:id])
 		@area.destroy
+		flash[:notice] = "Area was deleted."
 		redirect_to farms_path
 	end
 
