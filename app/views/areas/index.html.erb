@@ -2,4 +2,5 @@
 
 <% @areas.each do |area| %>
 	<%= render 'area_details', area: area %>
-<% end %>
+<% end %><br><br>
+<%= link_to 'Back to Farm', farm_path(@farm) %><br><br>
