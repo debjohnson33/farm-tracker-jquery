@@ -37,7 +37,6 @@ class FarmsController < ApplicationController
 			flash[:notice] = "Farm was updated."
 			redirect_to farm_path(@farm)
 		else
-			flash[:alert] = "Farm could not be updated."
 			render :edit
 		end
 	end
