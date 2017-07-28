@@ -1,3 +1,17 @@
+<% if @animal.errors.any? %>
+	  <div id="error_explanation">
+	    <h2>
+	      <%= pluralize(@animal.errors.count, "error") %>
+	      prohibited this animal from being saved:
+	    </h2>
+	 
+	    <ul>
+	    <% @animal.errors.full_messages.each do |msg| %>
+	      <li><%= msg %></li>
+	    <% end %>
+	    </ul>
+	  </div>
+<% end %><br>
 <h2>Add a New Animal</h2>
 <%= form_for Animal.new, :url => farm_animals_path(@farm, Animal.new) do |f| %>
 

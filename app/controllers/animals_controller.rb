@@ -25,13 +25,14 @@ class AnimalsController < ApplicationController
 				area.quantity += 1
 				area.save
 			end
-		end
+				end
 
 		if @animal.save
 			flash[:notice] = "Animal was created."
 			redirect_to animal_path(@animal)
 		else
-			flash[:alert] = "Animal not created. Fill in all fields."
+			@farm = Farm.find(params[:farm_id])
+			@areas = @farm.areas
 			render :new
 		end
 	end
