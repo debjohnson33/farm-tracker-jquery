@@ -20,7 +20,6 @@ class FarmsController < ApplicationController
 			flash[:notice] = "Farm was created."
 			redirect_to farm_path(@farm)
 		else
-			flash[:alert] = "Farm not created. Fill in all fields."
 			render :new
 		end
 	end
