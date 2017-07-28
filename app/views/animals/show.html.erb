@@ -6,7 +6,7 @@
 	Color: <%= @animal.color %><br>
 	Weight: <%= @animal.weight %><br>
 	Type: <%= @animal.animal_type %><br>
-	Pregnant?: <%= @animal.pregnant %><br>
+	Pregnant?: <%= pregnant?(@animal) %><br>
 	<% if @animal.pregnant == true %>
 		Date bred: <%= formatted_bred_date(@animal) %><br>
 		Estimated due date: <%= formatted_due_date(@animal) %><br>

@@ -7,4 +7,12 @@ module AnimalsHelper
 		animal.estimated_due_date.strftime("%b %d, %Y")		
 	end
 
+	def pregnant?(animal)
+		if animal.pregnant == true
+			"Yes"
+		else
+			"No"
+		end
+	end
+
 end
