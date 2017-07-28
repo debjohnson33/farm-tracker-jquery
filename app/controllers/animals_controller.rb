@@ -49,6 +49,7 @@ class AnimalsController < ApplicationController
 	def destroy
 		@animal = Animal.find(params[:id])
 		@animal.destroy
+		@animal.area.quantity -= 1
 		redirect_to farm_path
 	end
 
