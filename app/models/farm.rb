@@ -5,8 +5,6 @@ class Farm < ApplicationRecord
 
 	validates :name, presence: true
 	validates :name, uniqueness: true
-
-	accepts_nested_attributes_for :areas
 	
 	def areas_attributes=(areas_attributes)
 		areas_attributes.values.each do |area_attributes|
