@@ -32,9 +32,15 @@ class AreasController < ApplicationController
 
 	def update
 		@area = Area.find(params[:id])
-		@area.update(area_params)
-		flash[:notice] = "Area was updated."
-		redirect_to area_path(@area)
+		if @area.update(area_params)
+			flash[:notice] = "Area was updated."
+			redirect_to area_path(@area)
+		else
+			@area = Area.find(params[:id])
+			@farm = Farm.find(@area.farm_id)
+			flash[:alert] = "Area could not be updated. Must have all fields."
+			render :edit
+		end
 	end
 
 	def destroy
