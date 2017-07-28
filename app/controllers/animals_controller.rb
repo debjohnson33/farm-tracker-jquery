@@ -49,7 +49,6 @@ class AnimalsController < ApplicationController
 			flash[:notice] = "Animal was updated."
 			redirect_to animal_path(@animal)
 		else
-			@animal = Animal.find(params[:id])
 			@farm = @animal.area.farm
 			@areas = @farm.areas
 			render :edit
