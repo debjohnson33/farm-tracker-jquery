@@ -45,9 +45,15 @@ class AnimalsController < ApplicationController
 
 	def update
 		@animal = Animal.find(params[:id])
-		@animal.update(animal_params)
-		flash[:notice] = "Animal was updated."
-		redirect_to animal_path(@animal)
+		if @animal.update(animal_params)
+			flash[:notice] = "Animal was updated."
+			redirect_to animal_path(@animal)
+		else
+			@animal = Animal.find(params[:id])
+			@farm = @animal.area.farm
+			@areas = @farm.areas
+			render :edit
+		end
 	end
 
 	def destroy
