@@ -11,14 +11,12 @@ class AreasController < ApplicationController
 	end
 
 	def create
-		
+		@farm = Farm.find(params[:farm_id])
 		@area = Area.new(area_params)
-
 		if @area.save
 			flash[:notice] = "Area was created."
 			redirect_to area_path(@area)
 		else
-			flash[:alert] = "Area could not be created. Fill in all fields."
 			render :new
 		end
 	end
