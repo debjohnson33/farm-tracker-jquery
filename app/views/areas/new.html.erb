@@ -1,3 +1,17 @@
+<% if @area.errors.any? %>
+	  <div id="error_explanation">
+	    <h2>
+	      <%= pluralize(@area.errors.count, "error") %>
+	      prohibited this area from being saved:
+	    </h2>
+	 
+	    <ul>
+	    <% @area.errors.full_messages.each do |msg| %>
+	      <li><%= msg %></li>
+	    <% end %>
+	    </ul>
+	  </div>
+<% end %><br>
 	<h3>Create a New Area:</h3>
 	<%= form_for @area, url: farm_areas_path, method: :post do |f| %>
 		
