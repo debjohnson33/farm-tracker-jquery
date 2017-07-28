@@ -8,11 +8,14 @@ class Farm < ApplicationRecord
 
 	accepts_nested_attributes_for :areas
 	
-	#def areas_attributes=(areas)
-	#	areas.each do |area|
-	#		self.area = Area.find_or_create_by(name: area.name)
-	#		self.area.update(area)
-	#	end
-	#end
+	def areas_attributes=(areas_attributes)
+		areas_attributes.each do |area_attributes|
+			self.area = Area.where(name: area_attributes[:name]).first or create do |a|
+				a.area_type = areas_attributes[:area_type]
+				a.capacity = areas_attributes[:capacity]
+	    		a.quantity = areas_attributes[:quantity]
+	    	end
+		end
+	end
 
 end
