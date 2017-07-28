@@ -1,6 +1,6 @@
 class Farm < ApplicationRecord
 	belongs_to :user
-	has_many :areas	
+	has_many :areas, inverse_of: :farm, :dependent => :destroy
 	has_many :animals, through: :areas
 
 	validates :name, presence: true
