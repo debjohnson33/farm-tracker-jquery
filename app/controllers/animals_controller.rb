@@ -28,8 +28,10 @@ class AnimalsController < ApplicationController
 		end
 
 		if @animal.save
+			flash[:notice] = "Animal was created."
 			redirect_to animal_path(@animal)
 		else
+			flash[:alert] = "Animal not created. Fill in all fields."
 			render :new
 		end
 	end
@@ -43,6 +45,7 @@ class AnimalsController < ApplicationController
 	def update
 		@animal = Animal.find(params[:id])
 		@animal.update(animal_params)
+		flash[:notice] = "Animal was updated."
 		redirect_to animal_path(@animal)
 	end
 
@@ -50,6 +53,7 @@ class AnimalsController < ApplicationController
 		@animal = Animal.find(params[:id])
 		@animal.destroy
 		@animal.area.quantity -= 1
+		flash[:notice] = "Animal was deleted."
 		redirect_to farm_path
 	end
 
