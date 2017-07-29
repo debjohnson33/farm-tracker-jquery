@@ -8,6 +8,8 @@
 </ul>
 <%= link_to 'Animals', farm_animals_path(@farm) %><br><br>
 <%= link_to 'Add Area', new_farm_area_path(@farm.id) %><br><br>
+<% if @farm.areas.count > 0 %>
 <%= link_to 'Add Animal', new_farm_animal_path(@farm.id) %><br><br>
+<% end %>
 <%= link_to 'Edit Farm', edit_farm_path(@farm) %><br><br>
 <%= link_to 'Delete Farm', farm_path(@farm), method: :delete, data: { confirm: 'Are you sure?'} %>
