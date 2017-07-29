@@ -4,7 +4,12 @@ class FarmsController < ApplicationController
 	end
 
 	def show
-		set_farm
+		set_farm 
+		if current_user.id == @farm.user_id  
+			render :show
+		else
+			redirect_to farms_path
+		end
 	end
 
 	def new
