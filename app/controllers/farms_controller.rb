@@ -1,6 +1,6 @@
 class FarmsController < ApplicationController
 	def index
-		@farms = Farm.all
+		@farms = current_user.farms
 	end
 
 	def show
