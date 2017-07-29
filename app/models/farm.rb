@@ -6,7 +6,7 @@ class Farm < ApplicationRecord
 	validates :name, presence: true
 	
 	def areas_attributes=(areas_attributes)
-		areas_attributes.values.each do |area_attributes|
+		areas_attributes.each do |i, area_attributes|
 			area = Area.find_by(name: area_attributes[:name])
 			if area
 				self.areas << area unless self.areas.include?(area)
