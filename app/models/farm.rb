@@ -4,7 +4,6 @@ class Farm < ApplicationRecord
 	has_many :animals, through: :areas
 
 	validates :name, presence: true
-	validates :name, uniqueness: true
 	
 	def areas_attributes=(areas_attributes)
 		areas_attributes.values.each do |area_attributes|
