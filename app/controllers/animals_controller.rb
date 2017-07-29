@@ -1,23 +1,23 @@
 class AnimalsController < ApplicationController
 	def index
-		@farm = Farm.find(params[:farm_id])
+		set_farm
 		@animals = @farm.animals
 		@large_animals = @farm.animals.large
 		@small_animals = @farm.animals.small
 	end
 
 	def show
-		@animal = Animal.find(params[:id])
+		set_animal
 	end
 
 	def new
-		@farm = Farm.find(params[:farm_id])
+		set_farm
 		@areas = @farm.areas.all
 		@animal = Animal.new
 	end
 
 	def create
-		@farm = Farm.find(params[:farm_id])
+		set_farm
 		@animal = Animal.new(animal_params)
 		if @animal.name != ''
 			area = Area.find(params[:animal][:area_id])
@@ -38,13 +38,13 @@ class AnimalsController < ApplicationController
 	end
 
 	def edit
-		@animal = Animal.find(params[:id])
+		set_animal
 		@farm = @animal.area.farm
 		@areas = @farm.areas	
 	end
 
 	def update
-		@animal = Animal.find(params[:id])
+		set_animal
 		if @animal.update(animal_params)
 			flash[:notice] = "Animal was updated."
 			redirect_to animal_path(@animal)
@@ -56,7 +56,7 @@ class AnimalsController < ApplicationController
 	end
 
 	def destroy
-		@animal = Animal.find(params[:id])
+		set_animal
 		@animal.destroy
 		@animal.area.quantity -= 1
 		flash[:notice] = "Animal was deleted."
@@ -80,5 +80,13 @@ class AnimalsController < ApplicationController
 			:date_bred,
 			:estimated_due_date
 		)
+	end
+
+	def set_farm
+		@farm = Farm.find(params[:farm_id])
+	end
+
+	def set_animal
+		@animal = Animal.find(params[:id])
 	end
 end
