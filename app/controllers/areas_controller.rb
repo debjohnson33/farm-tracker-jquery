@@ -1,17 +1,17 @@
 class AreasController < ApplicationController
 
 	def index
-		@farm = Farm.find(params[:farm_id])
+		set_farm
 		@areas = @farm.areas	
 	end
 
 	def new
-		@farm = Farm.find(params[:farm_id])
+		set_farm
 		@area = Area.new
 	end
 
 	def create
-		@farm = Farm.find(params[:farm_id])
+		set_farm
 		@area = Area.new(area_params)
 		if @area.save
 			flash[:notice] = "Area was created."
@@ -22,16 +22,16 @@ class AreasController < ApplicationController
 	end
 
 	def show
-		@area = Area.find(params[:id])
+		set_area
 	end
 
 	def edit
-		@area = Area.find(params[:id])
+		set_area
 		@farm = Farm.find(@area.farm_id)
 	end
 
 	def update
-		@area = Area.find(params[:id])
+		set_area
 		if @area.update(area_params)
 			flash[:notice] = "Area was updated."
 			redirect_to area_path(@area)
@@ -42,7 +42,7 @@ class AreasController < ApplicationController
 	end
 
 	def destroy
-		@area = Area.find(params[:id])
+		set_area
 		@area.destroy
 		flash[:notice] = "Area was deleted."
 		redirect_to farms_path
@@ -59,5 +59,13 @@ class AreasController < ApplicationController
 			:quantity,
 			:farm_id,
 		)
+	end
+
+	def set_farm
+		@farm = Farm.find(params[:farm_id])
+	end
+
+	def set_area
+		@area = Area.find(params[:id])
 	end
 end
