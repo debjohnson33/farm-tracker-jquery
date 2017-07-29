@@ -4,13 +4,12 @@ class Farm < ApplicationRecord
 	has_many :animals, through: :areas
 
 	validates :name, presence: true
+
+	accepts_nested_attributes_for :areas, reject_if: proc { |a| a[:name].blank? }
 	
 	def areas_attributes=(areas_attributes)
 		areas_attributes.each do |i, area_attributes|
-			area = Area.find_by(name: area_attributes[:name])
-			if area
-				self.areas << area unless self.areas.include?(area)
-			end
+			self.areas.build(area_attributes)
 		end
 	end
 
