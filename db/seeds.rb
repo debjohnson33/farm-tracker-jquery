@@ -20,8 +20,8 @@
 	color: "white and tan", 
 	weight: 120, 
 	pregnant: true, 
-	date_bred: 20170407, 
-	estimated_due_date: 20171010, 
+	date_bred: "2017-04-07", 
+	estimated_due_date: "2017-04-07", 
 	area_id: @goat_pen.id,
 	animal_type: "goat" 
 	)
@@ -33,8 +33,8 @@
 	color: "white and tan", 
 	weight: 120, 
 	pregnant: true, 
-	date_bred: 20170407, 
-	estimated_due_date: 20171010, 
+	date_bred: "2017-04-07", 
+	estimated_due_date: "2017-10-10", 
 	area_id: @goat_pen.id,
 	animal_type: "goat" 
 	)
@@ -46,8 +46,8 @@
 	color: "white", 
 	weight: 150, 
 	pregnant: false, 
-	date_bred: 20170407, 
-	estimated_due_date: 20171010, 
+	date_bred: "2017-04-07", 
+	estimated_due_date: "2017-04-07", 
 	area_id: @goat_pen2.id,
 	animal_type: "goat" 
 	)
@@ -59,8 +59,8 @@
 	color: "white and tan", 
 	weight: 100, 
 	pregnant: false, 
-	date_bred: 20170407, 
-	estimated_due_date: 20171010, 
+	date_bred: "2017-04-07", 
+	estimated_due_date: "2017-04-07", 
 	area_id: @goat_pen2.id,
 	animal_type: "goat" 
 	)
