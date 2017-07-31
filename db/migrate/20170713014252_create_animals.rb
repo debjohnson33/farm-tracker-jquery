@@ -7,8 +7,8 @@ class CreateAnimals < ActiveRecord::Migration[5.1]
       t.string :color
       t.integer :weight
       t.boolean :pregnant, :default => false
-      t.date :date_bred
-      t.date :estimated_due_date
+      t.date :date_bred, :null => false
+      t.date :estimated_due_date, :null => false
       t.integer :area_id
       t.timestamps
     end
