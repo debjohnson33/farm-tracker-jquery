@@ -16,7 +16,6 @@ class FarmsController < ApplicationController
 		@farm = Farm.new
 		@user = current_user
 		@farm.areas.build
-		@farm.areas.build
 	end
 
 	def create
@@ -68,7 +67,7 @@ class FarmsController < ApplicationController
 				:area_type,
 				:capacity, 
 				:quantity,
-				:farm_id,
+				:farm_id
 			]
 		)
 	end
