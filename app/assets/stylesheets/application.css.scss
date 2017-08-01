@@ -15,4 +15,13 @@
  */
  @import "bootstrap";
 
+body { 
+
+	background-image: image-url("goat.jpg"); 
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+.container {
+	 color: #fff;
+}
 
