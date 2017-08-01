@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
  @import "bootstrap";
 
 body { 
@@ -24,4 +25,10 @@ body {
 .alert, .notice, div#error_explanation {
 	color: #E90E0B;
 }
+
+div.body-container a {
+	color: #E90E0B;
+	font-weight: bold;
+}
+
 
