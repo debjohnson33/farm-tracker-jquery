@@ -14,3 +14,7 @@
  *= require_self
  */
  @import "bootstrap";
+
+html body #bgimage {
+    background: url('cow.jpg');
+}
