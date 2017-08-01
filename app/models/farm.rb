@@ -8,15 +8,10 @@ class Farm < ApplicationRecord
 	accepts_nested_attributes_for :areas, reject_if: proc { |a| a[:name].blank? }
 	
 	def areas_attributes=(areas_attributes)
-		areas_attributes.each do |i, area_attributes|
-			self.areas.build(area_attributes)
+		areas_attributes.values.each do |area_attribute|
+			area = Area.find_or_create_by(area_attribute)
+				areas << area if area.persisted?
 		end
 	end
-
-	#def areas_attributes=(areas_attributes)
-	#	areas_attributes.delete_if { |_i, h| h.any? { |_k, v| v.empty? } }
-	#	areas_attributes.values.each { |area| areas.build(area)}
-	#end
-
 
 end
