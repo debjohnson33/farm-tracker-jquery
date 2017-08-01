@@ -1,15 +1,12 @@
 class FarmsController < ApplicationController
+	before_action :set_farm, except: %i[index new create]
+
 	def index
 		@farms = current_user.farms
 	end
 
 	def show
-		set_farm 
-		if current_user.id == @farm.user_id  
-			render :show
-		else
-			redirect_to farms_path
-		end
+		current_user.id == @farm.user_id ? (render :show) : (redirect_to farms_path)
 	end
 
 	def new
@@ -29,14 +26,18 @@ class FarmsController < ApplicationController
 	end
 
 	def edit
-		set_farm
-		if @farm.areas.count < 1
-			@farm.areas.build
+		if current_user.id == @farm.user_id
+			if @farm.areas.count < 1
+				@farm.areas.build
+			end
+			render :show
+		else
+			redirect_to farms_path
 		end
+
 	end
 
 	def update
-		set_farm
 		if @farm.update(farm_params)
 			flash[:notice] = "Farm was updated."
 			redirect_to farm_path(@farm)
@@ -46,7 +47,6 @@ class FarmsController < ApplicationController
 	end
 
 	def destroy
-		set_farm
 		@areas = @farm.areas
 		@areas.destroy
 		@farm.destroy
