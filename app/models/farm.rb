@@ -13,4 +13,10 @@ class Farm < ApplicationRecord
 		end
 	end
 
+	#def areas_attributes=(areas_attributes)
+	#	areas_attributes.delete_if { |_i, h| h.any? { |_k, v| v.empty? } }
+	#	areas_attributes.values.each { |area| areas.build(area)}
+	#end
+
+
 end
