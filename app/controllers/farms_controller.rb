@@ -30,7 +30,7 @@ class FarmsController < ApplicationController
 			if @farm.areas.count < 1
 				@farm.areas.build
 			end
-			render :show
+			render :edit
 		else
 			redirect_to farms_path
 		end

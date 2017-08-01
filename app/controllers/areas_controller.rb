@@ -1,17 +1,16 @@
 class AreasController < ApplicationController
+	before_action :set_area, except: %i[index new create]
+	before_action :set_farm, except: %i[show edit update destroy]
 
 	def index
-		set_farm
 		@areas = @farm.areas	
 	end
 
 	def new
-		set_farm
 		@area = Area.new
 	end
 
 	def create
-		set_farm
 		@area = Area.new(area_params)
 		if @area.save
 			flash[:notice] = "Area was created."
@@ -22,16 +21,13 @@ class AreasController < ApplicationController
 	end
 
 	def show
-		set_area
 	end
 
 	def edit
-		set_area
 		@farm = Farm.find(@area.farm_id)
 	end
 
 	def update
-		set_area
 		if @area.update(area_params)
 			flash[:notice] = "Area was updated."
 			redirect_to area_path(@area)
@@ -42,7 +38,6 @@ class AreasController < ApplicationController
 	end
 
 	def destroy
-		set_area
 		@area.destroy
 		flash[:notice] = "Area was deleted."
 		redirect_to farms_path
