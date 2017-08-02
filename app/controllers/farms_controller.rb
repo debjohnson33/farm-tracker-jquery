@@ -13,7 +13,6 @@ class FarmsController < ApplicationController
 		@farm = Farm.new
 		@user = current_user
 		@farm.areas.build
-		@farm.areas.build
 	end
 
 	def create
@@ -59,18 +58,22 @@ class FarmsController < ApplicationController
 	private
 
 	def farm_params
-		params.require(:farm).permit(
-			:name,
-			:user_id, 
-			:areas_attributes => [
-				:id,
-				:name, 
-				:area_type,
-				:capacity, 
-				:quantity,
-				:farm_id
-			]
-		)
+		if params[:action] == "new" 
+			params.require(:farm).permit(
+				:name,
+				:user_id, 
+				:areas_attributes => [
+					#:id,
+					:name, 
+					:area_type,
+					:capacity, 
+					:quantity,
+					:farm_id
+				]
+			)
+		else
+			params.require(:farm).permit(:name, :user_id)
+		end
 	end
 
 	def set_farm
