@@ -13,6 +13,7 @@ class FarmsController < ApplicationController
 		@farm = Farm.new
 		@user = current_user
 		@farm.areas.build
+		@farm.areas.build
 	end
 
 	def create

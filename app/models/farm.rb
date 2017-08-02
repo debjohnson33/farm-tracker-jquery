@@ -5,12 +5,17 @@ class Farm < ApplicationRecord
 
 	validates :name, presence: true
 
-	accepts_nested_attributes_for :areas, reject_if: proc { |a| a[:name].blank? }
+	#accepts_nested_attributes_for :areas, reject_if: proc { |a| a[:name].blank? }
 	
 	def areas_attributes=(areas_attributes)
-		areas_attributes.values.each do |area_attribute|
-			area = Area.find_or_create_by(area_attribute)
-				areas << area if area.persisted?
+		#raise areas_attributes.inspect
+		areas_attributes.values.each do |area_attributes|
+			area = Area.new(area_attributes)
+			if self.areas.include?(area)
+				area.update(area_attributes)
+			else
+				area.build(area_attributes)
+			end
 		end
 	end
 
