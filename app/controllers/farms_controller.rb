@@ -58,12 +58,12 @@ class FarmsController < ApplicationController
 	private
 
 	def farm_params
-		if params[:action] == "new" 
+		if params[:action] == "new" || params[:action] == "create"
 			params.require(:farm).permit(
 				:name,
 				:user_id, 
 				:areas_attributes => [
-					#:id,
+					:id,
 					:name, 
 					:area_type,
 					:capacity, 
