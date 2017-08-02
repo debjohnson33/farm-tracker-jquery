@@ -2,7 +2,9 @@
 
 Usage
 
-Welcome to the Farm Tracker! Users can add a farm (or more than one) with different areas and then add animals. If your female animal is pregnant, you can also document that with the "bred date" and "estimated due date." 
+Welcome to the Farm Tracker! Users can add a farm (or more than one) with different areas and then add animals. If your female animal is pregnant, you can also document that with the "bred date" and "estimated due date." To see the app on heroku go to:
+
+https://farm-tracker.herokuapp.com/
 
 Installation
 
