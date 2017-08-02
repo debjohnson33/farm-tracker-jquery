@@ -3,7 +3,12 @@ class AreasController < ApplicationController
 	before_action :set_farm, except: %i[show edit update destroy]
 
 	def index
-		@areas = @farm.areas	
+		if current_user.id == @farm.user_id
+			@areas = @farm.areas
+			render :index
+		else
+			redirect_to farms_path
+		end
 	end
 
 	def new
