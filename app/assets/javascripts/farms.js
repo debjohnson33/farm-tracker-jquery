@@ -5,6 +5,6 @@ $(document).ready(function() {
 const bindClickHandlers = () => {
 	$('all_user_farms').on('click', (e) => {
 		e.preventDefault()
-		alert('Clicked on Farms')
+		console.log('Clicked on Farms')
 	})
 }
