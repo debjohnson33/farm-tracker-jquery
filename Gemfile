@@ -10,6 +10,7 @@ ruby '2.3.4'
 gem 'rails', '~> 5.1.1'
 
 gem 'active_model_serializers', '0.10.6'
+gem 'jquery-rails'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
 # Use Puma as the app server
