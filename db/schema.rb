@@ -10,31 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170726223708) do
+ActiveRecord::Schema.define(version: 20170713020311) do
 
   create_table "animals", force: :cascade do |t|
     t.string "name"
     t.string "age"
     t.string "sex"
     t.string "color"
+    t.string "animal_type"
     t.integer "weight"
     t.boolean "pregnant", default: false
-    t.datetime "date_bred"
-    t.datetime "estimated_due_date"
+    t.datetime "date_bred", null: false
+    t.datetime "estimated_due_date", null: false
     t.integer "area_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "animal_type"
   end
 
   create_table "areas", force: :cascade do |t|
     t.string "name"
     t.integer "farm_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "area_type"
     t.integer "capacity"
     t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "farms", force: :cascade do |t|
