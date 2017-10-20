@@ -3,6 +3,10 @@ class FarmsController < ApplicationController
 
 	def index
 		@farms = current_user.farms
+		respond_to do |f|
+			f.html
+			f.json { render json: @farms}
+		end
 	end
 
 	def show
