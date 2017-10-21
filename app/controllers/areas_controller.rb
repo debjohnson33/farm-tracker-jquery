@@ -5,7 +5,10 @@ class AreasController < ApplicationController
 	def index
 		if current_user.id == @farm.user_id
 			@areas = @farm.areas
-			render :index
+			respond_to do |f|
+				f.html
+				f.json { render json: @areas}
+			end
 		else
 			redirect_to farms_path
 		end
