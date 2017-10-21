@@ -16,3 +16,4 @@
 //= require_tree .
 //= require farms
 //= require areas
+//= require animals
