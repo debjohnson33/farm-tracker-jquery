@@ -8,7 +8,7 @@
 </ul>
 
 	Total Animals: <%= animal_count %><br><br>
-<%= link_to 'Animals', farm_animals_path(@farm), :class "load_animals" %><br><br>
+<%= link_to 'Animals', farm_animals_path(@farm), :class => "load_animals" %><br><br>
 <%= link_to 'Add Area', new_farm_area_path(@farm.id) %><br><br>
 <% if @farm.areas.count > 0 %>
 <%= link_to 'Add Animal', new_farm_animal_path(@farm.id) %><br><br>
