@@ -1,9 +1,13 @@
 $(document).ready(function() {
-	$('a.load_animals').on('click', (e) => {
-		e.preventDefault();
-		debugger
+	$('a.load_animals').on('click', function(e) {
+		
 		console.log('Clicked on Animals Link!')
-		$.get(this.url).success(function(data) {
+		$.ajax({
+			method: 'GET',
+			url: this.href
+		}).success(function(data) {
+			console.log(data)
+			//debugger
 			var $ol = $("#animals_list ol")
 			$ol.html("")
 
@@ -11,5 +15,6 @@ $(document).ready(function() {
 				$ol.append("<li>" + animal.name + "</li>");
 			})
 		})
+		e.preventDefault();
 	})
 })

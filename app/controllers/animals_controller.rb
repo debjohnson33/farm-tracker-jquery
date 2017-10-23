@@ -6,10 +6,8 @@ class AnimalsController < ApplicationController
 		@animals = @farm.animals
 		@large_animals = @farm.animals.large
 		@small_animals = @farm.animals.small
-		respond_to do |f|
-			f.html
-			f.json { render json: @animals, layout: false }
-		end
+		render json: @animals, layout: false
+		
 	end
 
 	def show
