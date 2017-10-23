@@ -12,8 +12,8 @@ class FarmsController < ApplicationController
 	def show
 		if current_user.id == @farm.user_id
 			respond_to do |f|
-				f.html
 				f.json { render json: @farm}
+				f.html
 			end
 		else
 			redirect_to farms_path
