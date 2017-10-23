@@ -10,7 +10,14 @@ class FarmsController < ApplicationController
 	end
 
 	def show
-		current_user.id == @farm.user_id ? (render :show) : (redirect_to farms_path)
+		if current_user.id == @farm.user_id
+			respond_to do |f|
+				f.html
+				f.json { render json: @farm}
+			end
+		else
+			redirect_to farms_path
+		end
 	end
 
 	def new

@@ -8,6 +8,11 @@
 </ul>
 
 	Total Animals: <%= animal_count %><br><br>
+
+<div id="animals_list">
+	<ol></ol>
+</div>
+
 <%= link_to 'Animals', farm_animals_path(@farm), :class => "load_animals" %><br><br>
 <%= link_to 'Add Area', new_farm_area_path(@farm.id) %><br><br>
 <% if @farm.areas.count > 0 %>
