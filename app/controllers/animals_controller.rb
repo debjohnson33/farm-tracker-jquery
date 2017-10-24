@@ -6,8 +6,10 @@ class AnimalsController < ApplicationController
 		@animals = @farm.animals
 		@large_animals = @farm.animals.large
 		@small_animals = @farm.animals.small
-		render json: @animals, layout: false
-		
+		respond_to do |f|
+			f.html { render :index }
+			f.json { render json: @animals, layout: false }		
+		end	
 	end
 
 	def show
