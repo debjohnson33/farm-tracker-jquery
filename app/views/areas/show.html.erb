@@ -1,11 +1,11 @@
 <h2>Area:</h2>
-
-		<a href="#" class="js-next" data-id="<%=@area.id%>">Click to See Next Area</a><br><br>
-		<li>Animal Area: <%= @area.name %></li>		
-		<li>Area Type: <%= @area.area_type %></li>
-		<li>Area Capacity: <%= @area.capacity %></li>
-		<li>Area Quantity: <%= @area.quantity %></li>
-		<li>Area Availability: <%= @area.availability %></li><br>
+		
+		<li class="areaName">Animal Area: <%= @area.name %></li>		
+		<li class="areaType">Area Type: <%= @area.area_type %></li>
+		<li class="areaCapacity">Area Capacity: <%= @area.capacity %></li>
+		<li class="areaQuantity">Area Quantity: <%= @area.quantity %></li>
+		<li class="areaAvailability">Area Availability: <%= @area.availability %></li><br>
+		<button class="js-next" data-id="<%=@area.id%>">Click to See Next Area</button><br><br>
 
 
 <%= link_to 'Edit Area', edit_area_path(@area) %><br><br>
