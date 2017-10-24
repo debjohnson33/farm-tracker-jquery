@@ -20,6 +20,17 @@ const bindClicks = () => {
 		})
 		
 	})
+
+	$(document).on('click', ".show_link", (e) => {
+		e.preventDefault()
+		let id = $(this).attr('data-id')
+		$.ajax({
+			method:
+			url: 
+		}).success(function(data) {
+
+		})
+	})
 }
 
 // JS Model Object
@@ -27,11 +38,11 @@ function Farm(farm) {
 	this.id = farm.id
 	this.name = farm.name
 }
-
+// Prototype Method
 Farm.prototype.formatIndex = function() {
 	let farmHtml = `
 		<h1>Farms</h1>
-		<h2>${this.name}</h2>
+		<a href="/farms/${this.id}" class="show_link"><h2>${this.name}</h2></a>
 	`
 	return farmHtml
 }
