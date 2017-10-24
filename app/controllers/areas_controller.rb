@@ -6,7 +6,7 @@ class AreasController < ApplicationController
 		if current_user.id == @farm.user_id
 			@areas = @farm.areas
 			respond_to do |f|
-				f.html
+				f.html { render :index }
 				f.json { render json: @areas}
 			end
 		else
@@ -29,6 +29,10 @@ class AreasController < ApplicationController
 	end
 
 	def show
+		respond_to do |format|
+	      format.html { render :show }
+	      format.json { render json: @area }
+	    end
 	end
 
 	def edit

@@ -1,6 +1,7 @@
 <h2>Areas:</h2>
 
 <% @areas.each do |area| %>
-	<%= render 'area_details', area: area %>
+	<li><%= link_to area.name, area_path(area.id) %></li>
+	
 <% end %><br><br>
 <%= link_to 'Back to Farm', farm_path(@farm) %><br><br>
