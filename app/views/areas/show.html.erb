@@ -1,7 +1,7 @@
 <h2>Area:</h2>
 
 		<a href="#" class="js-next" data-id="<%=@area.id%>">Click to See Next Area</a><br><br>
-		<li>Animal Area: <%= link_to @area.name, area_path(@area.id) %></li>		
+		<li>Animal Area: <%= @area.name %></li>		
 		<li>Area Type: <%= @area.area_type %></li>
 		<li>Area Capacity: <%= @area.capacity %></li>
 		<li>Area Quantity: <%= @area.quantity %></li>

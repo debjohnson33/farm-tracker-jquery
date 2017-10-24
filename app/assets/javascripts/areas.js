@@ -3,8 +3,10 @@ $(document).ready(function() {
 })
 
 const bindClickHandlers = () => {
-	$('').on('click', (e) => {
-		e.preventDefault()
-		console.log('Clicked on Areas')
+	$('.js-next').on('click', function() {
+		
+		console.log('Clicked on Next Area')
+		var nextId = parseInt($(".js-next").attr(data-id)) + 1;
+		debugger
 	})
 }
