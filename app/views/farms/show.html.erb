@@ -2,7 +2,7 @@
 <ul>
 	<% @farm.areas.each do |area| %>
 		
-		<%= render '/areas/area_details', area: area %>
+		<li><%= link_to area.name, area_path(area.id) %></li>
 	<% end %>
 
 </ul>

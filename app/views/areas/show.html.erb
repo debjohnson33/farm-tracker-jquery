@@ -1,10 +1,12 @@
 <h2>Area:</h2>
 
-		<li>Animal Area: <%= link_to area.name, area_path(area.id) %></li>		
-		<li>Area Type: <%= area.area_type %></li>
-		<li>Area Capacity: <%= area.capacity %></li>
-		<li>Area Quantity: <%= area.quantity %></li>
-		<li>Area Availability: <%= area.availability %></li><br>
+		<a href="#" class="js-next" data-id="<%=@area.id%>">Click to See Next Area</a><br><br>
+		<li>Animal Area: <%= link_to @area.name, area_path(@area.id) %></li>		
+		<li>Area Type: <%= @area.area_type %></li>
+		<li>Area Capacity: <%= @area.capacity %></li>
+		<li>Area Quantity: <%= @area.quantity %></li>
+		<li>Area Availability: <%= @area.availability %></li><br>
+
 
 <%= link_to 'Edit Area', edit_area_path(@area) %><br><br>
 <%= link_to 'Back to Farm', farm_path(@area.farm) %><br><br>
