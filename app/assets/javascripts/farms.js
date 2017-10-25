@@ -21,14 +21,22 @@ const bindClicks = () => {
 		
 	})
 
-	$(document).on('click', ".show_link", (e) => {
+	$(document).on('click', '.show_link', function(e) {
 		e.preventDefault()
-		let id = $(this).attr('data-id')
+		let id = $('.show_link').attr('data-id')
+		debugger
 		$.ajax({
-			method:
-			url: 
+			method: 'GET',
+			url: `/farms/${id}` //how to get integer instead of string?
 		}).success(function(data) {
-
+		//debugger
+			$(".body-container").html('')
+			data.forEach(function(farm) {
+				console.log(farm)
+				//let newFarm = new Farm(farm)
+				//let farmHtml = newFarm.formatIndex()
+				//$(".body-container").append(farmHtml)
+			})
 		})
 	})
 }
@@ -42,7 +50,7 @@ function Farm(farm) {
 Farm.prototype.formatIndex = function() {
 	let farmHtml = `
 		<h1>Farms</h1>
-		<a href="/farms/${this.id}" class="show_link"><h2>${this.name}</h2></a>
+		<a href="/farms/${this.id}" data-id=${this.id} class="show_link"><h2>${this.name}</h2></a>
 	`
 	return farmHtml
 }
