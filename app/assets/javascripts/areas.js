@@ -5,7 +5,6 @@ $(document).ready(function() {
 const bindClickHandlers = () => {
 	$('.js-next').on('click', function() {
 		
-		console.log('Clicked on Next Area')
 		var nextId = parseInt($(".js-next").attr("data-id")) + 1;
 		$.get("/areas/" + nextId + ".json", function(data) {
 			//debugger
@@ -17,3 +16,14 @@ const bindClickHandlers = () => {
 		})
 	})
 }
+
+// JS Model Object
+function Area(area) {
+	this.id = area.id
+	this.name = area.name
+	this.area_type = area.area_type
+	this.area_capacity = area.area_capacity
+	this.quantity = area.quantity
+	this.availability = area.availability
+}
+// Prototype Method
