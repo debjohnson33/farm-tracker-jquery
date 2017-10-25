@@ -27,3 +27,13 @@ function Area(area) {
 	this.availability = area.availability
 }
 // Prototype Method
+Area.prototype.formatShow = function() {
+	let areaHtml = `
+		<h1>Area</h1>
+		<h2>Name: ${this.name}</h2>
+		<p>Type: ${this.area_type}</p>
+		<p>Capacity: ${this.capacity}</p>
+		<p>Quantity: ${this.quantity}</p>
+		<p>Availability: ${this.availability}</p>
+	`
+}

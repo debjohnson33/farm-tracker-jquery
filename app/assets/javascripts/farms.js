@@ -48,7 +48,7 @@ Farm.prototype.formatShow = function() {
 	let farmHtml = `
 		<h1>Farm</h1>
 		<h2>Name: ${this.name}</h2>
-		<h1>Id: ${this.id}</h1>
+		<h2>Id: ${this.id}</h2>
 	`
 	return farmHtml
 }
