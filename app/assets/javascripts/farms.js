@@ -7,10 +7,7 @@ const bindClicks = () => {
 		e.preventDefault();
 		history.pushState(null, null, "farms")
 
-		$.ajax({
-			method: 'GET',
-			url: this.href
-		}).success(function(data) {
+		$.get(this.href, function(data) {
 			$(".body-container").html('')
 			data.forEach(function(farm) {
 				let newFarm = new Farm(farm)
@@ -18,26 +15,29 @@ const bindClicks = () => {
 				$(".body-container").append(farmHtml)
 			})
 		})
+
+		//.success(function(data) {
+			
+		//})
 		
 	})
 
-	$(document).on('click', '.show_link', function(e) {
+	$(document).on('click', ".show_link", function(e) {
 		e.preventDefault()
-		let id = $('.show_link').attr('data-id')
-		debugger
-		$.ajax({
-			method: 'GET',
-			url: `/farms/${id}` //how to get integer instead of string?
-		}).success(function(data) {
-		//debugger
-			$(".body-container").html('')
-			data.forEach(function(farm) {
-				console.log(farm)
-				//let newFarm = new Farm(farm)
-				//let farmHtml = newFarm.formatIndex()
-				//$(".body-container").append(farmHtml)
-			})
+		let id = $(this).attr('data-id')
+		$.get(`/farms/${id}.json`, function(data){
+			//How to use for Each ???
+			//	let newFarm = new Farm(farm)
+			//	let farmHtml = newFarm.formatShow()
+			//	$(".body-container").append(farmHtml)
+				}
+			}
+			
 		})
+		//.success(function(data) {
+			
+			
+		//})
 	})
 }
 
@@ -51,6 +51,14 @@ Farm.prototype.formatIndex = function() {
 	let farmHtml = `
 		<h1>Farms</h1>
 		<a href="/farms/${this.id}" data-id=${this.id} class="show_link"><h2>${this.name}</h2></a>
+	`
+	return farmHtml
+}
+
+Farm.prototype.formatShow = function() {
+	let farmHtml = `
+		<h1>Farm</h1>
+		<h2>${this.name}</h2>
 	`
 	return farmHtml
 }
