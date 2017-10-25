@@ -24,15 +24,13 @@ const bindClicks = () => {
 
 	$(document).on('click', ".show_link", function(e) {
 		e.preventDefault()
-		let id = $(this).attr('data-id')
-		$.get(`/farms/${id}.json`, function(data){
-			//How to use for Each ???
-			//	let newFarm = new Farm(farm)
-			//	let farmHtml = newFarm.formatShow()
-			//	$(".body-container").append(farmHtml)
-				}
-			}
-			
+		let id = parseInt($(this).attr('data-id'))
+		$.get(`/farms/${id}.json`, function(farm){
+			debugger
+			$(".body-container").html('')
+				let newFarm = new Farm(farm)
+				let farmHtml = newFarm.formatShow()
+				$(".body-container").append(farmHtml)			
 		})
 		//.success(function(data) {
 			
@@ -58,7 +56,8 @@ Farm.prototype.formatIndex = function() {
 Farm.prototype.formatShow = function() {
 	let farmHtml = `
 		<h1>Farm</h1>
-		<h2>${this.name}</h2>
+		<h2>Name: ${this.name}</h2>
+		<h1>${this.id}</h1>
 	`
 	return farmHtml
 }

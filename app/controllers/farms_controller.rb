@@ -12,7 +12,7 @@ class FarmsController < ApplicationController
 	def show
 		if current_user.id == @farm.user_id
 			respond_to do |f|
-				f.json { render json: @farm}
+				f.json { render json: @farm, :layout => false }
 				f.html
 			end
 		else
