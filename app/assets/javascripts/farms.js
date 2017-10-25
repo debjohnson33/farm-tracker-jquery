@@ -15,10 +15,6 @@ const bindClicks = () => {
 				$(".body-container").append(farmHtml)
 			})
 		})
-
-		//.success(function(data) {
-			
-		//})
 		
 	})
 
@@ -26,16 +22,11 @@ const bindClicks = () => {
 		e.preventDefault()
 		let id = parseInt($(this).attr('data-id'))
 		$.get(`/farms/${id}.json`, function(farm){
-			debugger
 			$(".body-container").html('')
 				let newFarm = new Farm(farm)
 				let farmHtml = newFarm.formatShow()
 				$(".body-container").append(farmHtml)			
 		})
-		//.success(function(data) {
-			
-			
-		//})
 	})
 }
 
@@ -57,7 +48,7 @@ Farm.prototype.formatShow = function() {
 	let farmHtml = `
 		<h1>Farm</h1>
 		<h2>Name: ${this.name}</h2>
-		<h1>${this.id}</h1>
+		<h1>Id: ${this.id}</h1>
 	`
 	return farmHtml
 }
