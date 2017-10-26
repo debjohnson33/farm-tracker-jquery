@@ -29,8 +29,6 @@ class AreasController < ApplicationController
 	end
 
 	def show
-		@animals = @area.animals
-		@farm = Farm.find(@area.farm_id)
 		respond_to do |format|
 	      format.html { render :show }
 	      format.json { render json: @area }
