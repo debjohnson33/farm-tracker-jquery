@@ -4,15 +4,14 @@ $(document).ready(function() {
 
 const bindClickHandlers = () => {
 	$('.js-next').on('click', function() {
-		
 		var nextId = parseInt($(".js-next").attr("data-id")) + 1;
 		$.get("/areas/" + nextId + ".json", function(data) {
-			//debugger
 			$(".areaName").text(data["name"])
 			$(".areaType").text(data["type"])
-			$(".areaCapacity").text(data["capacity"])
-			$(".areaQuantity").text(data["quantity"])
-			$(".areaAvailability").text(data["availability"])
+			$(".areaCapacity").val(data["capacity"])
+			$(".areaQuantity").val(data["quantity"])
+			$(".areaAvailability").val(data["availability"])
+			
 		})
 	})
 }
