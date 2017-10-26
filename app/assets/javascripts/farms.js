@@ -58,18 +58,18 @@ Farm.prototype.formatShow = function() {
 	let farmHtml = `
 		<h2>Farm</h2>
 		<p>Name: ${this.name}</p>
-		<p>Id: ${this.id}</p>
 	`
 	return farmHtml
 }
 
 function Area(area) {
+	this.id = area.id
 	this.name = area.name
 }
 
 Area.prototype.formatShow = function() {
 	let areaHtml = `
-		<p>${this.name}</p>
+		<a href="/areas/${this.id}"><p>${this.name}</p></a>
 	`
 	return areaHtml
 }
