@@ -47,6 +47,9 @@ function Farm(farm) {
 // Prototype Method
 Farm.prototype.formatIndex = function() {
 	let farmHtml = `
+		<br><br>
+		<div class=notice id=notice><div>
+		<div class=alert id=alert><div>
 		<h1>Farms</h1>
 		<a href="/farms/${this.id}" data-id=${this.id} class="show_link">${this.name}</a><br><br>
 		<a href="/farms/new" class="add_farm_link">Add Farm</a>
@@ -69,7 +72,7 @@ function Area(area) {
 
 Area.prototype.formatShow = function() {
 	let areaHtml = `
-		<a href="/areas/${this.id}"><p>${this.name}</p></a>
+		<li><a href="/areas/${this.id}">${this.name}</a></li>
 	`
 	return areaHtml
 }
