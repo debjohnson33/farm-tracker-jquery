@@ -40,6 +40,7 @@ Farm.prototype.formatIndex = function() {
 	let farmHtml = `
 		<h1>Farms</h1>
 		<a href="/farms/${this.id}" data-id=${this.id} class="show_link"><h2>${this.name}</h2></a>
+		<a href="/farms/new" class="add_farm_link">Add Farm</a>
 	`
 	return farmHtml
 }
