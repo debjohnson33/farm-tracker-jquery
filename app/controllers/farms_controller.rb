@@ -30,7 +30,10 @@ class FarmsController < ApplicationController
 		@farm = Farm.new(farm_params)
 		if @farm.save
 			flash[:notice] = "Farm was created."
-			redirect_to farm_path(@farm)
+			respond_to do |f|
+				f.json { render json: @farm }
+				f.html
+			end
 		else
 			render :new
 		end

@@ -35,9 +35,23 @@ const bindClicks = () => {
 		})
 	})
 
-	$(document).on('click','.add_farm_link', function(e) {
+	$('.new_farm').on('submit', function(e) {
 		e.preventDefault();
-		$.get(this.href, function(form) {
+		
+		//data = {
+		//	'authenticity_token': $("input[name='authenticity_token']").val(),
+		//	'farm_name': $("input[name='farm[name]']").val(),
+		//	'farm_user_id': $("input[name='farm[user_id]']").val(),
+		//	'area_name': $("input[name='farm[areas_attributes][0][name]']").val(),
+		//	'area_type': $("input[name='farm[areas_attributes][0][area_type]']").val(),
+		//	'capacity': $("input[name='farm[areas_attributes][0][capacity]']").val(),
+		//	'quantity': $("input[name='farm[areas_attributes][0][quantity]']").val(),
+		//	'farm_id': $("input[name='farm[areas_attributes][0][farm_id]']").val()
+		//}
+
+		
+		$.post(this.action, $(this).serialize(), function(data) {
+			console.log(data)
 			debugger
 		})
 	})
