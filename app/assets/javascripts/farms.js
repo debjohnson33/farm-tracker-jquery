@@ -14,6 +14,7 @@ const bindClicks = () => {
 				let farmHtml = newFarm.formatIndex()
 				$(".body-container").append(farmHtml)
 			})
+			$(".body-container").append(farmFooter)
 		})
 		
 	})
@@ -63,8 +64,7 @@ function Farm(farm) {
 // Prototype Method
 Farm.prototype.formatIndex = function() {
 	let farmHtml = `
-		<a href="/farms/${this.id}" data-id=${this.id} class="show_link">${this.name}</a><br><br>
-		<a href="/farms/new" class="add_farm_link">Add Farm</a>
+		<a href="/farms/${this.id}" data-id=${this.id} class="show_link">${this.name}</a><br>		
 	`
 	return farmHtml
 }
@@ -100,5 +100,13 @@ function farmHeader() {
 		<h1>Farms</h1>
 	`
 	return farmHeader
+}
+
+function farmFooter() {
+	let farmFooter = `
+		<br><br>
+		<a href="/farms/new" class="add_farm_link">Add Farm</a>
+	`	
+	return farmFooter
 }
 
