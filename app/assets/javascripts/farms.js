@@ -32,7 +32,9 @@ const bindClicks = () => {
 					let newArea = new Area(area)
 					let areaHtml = newArea.formatShow()
 					$(".body-container").append(areaHtml)
-				})		
+				})
+				let animalCount = newFarm.formatAnimalCount()
+				$(".body-container").append(animalCount)		
 		})
 	})
 
@@ -60,6 +62,7 @@ function Farm(farm) {
 	this.id = farm.id
 	this.name = farm.name
 	this.areas = farm.areas
+	this.animals = farm.animals
 }
 // Prototype Method
 Farm.prototype.formatIndex = function() {
@@ -108,5 +111,13 @@ function farmFooter() {
 		<a href="/farms/new" class="add_farm_link">Add Farm</a>
 	`	
 	return farmFooter
+}
+
+Farm.prototype.formatAnimalCount = function() {
+	let animalCount = `
+		<br>
+		<p>Total Animals: ${this.animals.length}</p>
+	`
+	return animalCount
 }
 
