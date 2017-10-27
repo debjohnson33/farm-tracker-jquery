@@ -34,7 +34,9 @@ const bindClicks = () => {
 					$(".body-container").append(areaHtml)
 				})
 				let animalCount = newFarm.formatAnimalCount()
-				$(".body-container").append(animalCount)		
+				$(".body-container").append(animalCount)
+				let farmLinks = newFarm.formatFarmLinks()
+				$(".body-container").append(farmLinks)		
 		})
 	})
 
@@ -119,5 +121,17 @@ Farm.prototype.formatAnimalCount = function() {
 		<p>Total Animals: ${this.animals.length}</p>
 	`
 	return animalCount
+}
+
+Farm.prototype.formatFarmLinks = function() {
+	let farmLinks = `
+		<a href="/farms/${this.id}/animals">Animals</a><br><br>
+		<a href="/farms/${this.id}/areas/new">Add Area</a><br><br>
+		<a href="/farms/${this.id}/animals/new">Add Animal</a><br><br>
+		<a href="/farms/${this.id}/edit">Edit Farm</a><br><br>
+		<a href="/farms/${this.id}/areas/new">Add Area</a><br><br>
+		<a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/farms/${this.id}">Delete</a>
+	`
+	return farmLinks
 }
 
