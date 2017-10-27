@@ -31,9 +31,7 @@ const bindClicks = () => {
 					let newArea = new Area(area)
 					let areaHtml = newArea.formatShow()
 					$(".body-container").append(areaHtml)
-				})
-				
-				//debugger			
+				})		
 		})
 	})
 }
@@ -59,6 +57,9 @@ Farm.prototype.formatIndex = function() {
 
 Farm.prototype.formatShow = function() {
 	let farmHtml = `
+		<br><br>
+		<div class=notice id=notice><div>
+		<div class=alert id=alert><div>
 		<h2>Farm</h2>
 		<p>Name: ${this.name}</p>
 	`
@@ -76,4 +77,6 @@ Area.prototype.formatShow = function() {
 	`
 	return areaHtml
 }
+
+
 

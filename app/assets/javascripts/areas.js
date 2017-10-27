@@ -6,11 +6,7 @@ const bindClickHandlers = () => {
 	$('.js-next').on('click', function() {
 		var nextId = parseInt($(".js-next").attr("data-id")) + 1;
 		$.get("/areas/" + nextId + ".json", function(data) {
-			$(".areaName").text(data["name"])
-			$(".areaType").text(data["type"])
-			$(".areaCapacity").val(data["capacity"])
-			$(".areaQuantity").val(data["quantity"])
-			$(".areaAvailability").val(data["availability"])
+			formatShow(data)
 			
 		})
 	})
@@ -25,4 +21,11 @@ function Area(area) {
 	this.quantity = area.quantity
 	this.availability = area.availability
 }
-// Prototype Method
+
+function formatShow(data) {
+	$(".areaName").text(data["name"])
+	$(".areaType").text(data["type"])
+	$(".areaCapacity").val(data["capacity"])
+	$(".areaQuantity").val(data["quantity"])
+	$(".areaAvailability").val(data["availability"])
+}
