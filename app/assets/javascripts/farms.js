@@ -8,7 +8,7 @@ const bindClicks = () => {
 		history.pushState(null, null, "farms")
 
 		$.get(this.href, function(data) {
-			$(".body-container").html('')
+			$(".body-container").html(farmHeader)
 			data.forEach(function(farm) {
 				let newFarm = new Farm(farm)
 				let farmHtml = newFarm.formatIndex()
@@ -37,22 +37,19 @@ const bindClicks = () => {
 
 	$('.new_farm').on('submit', function(e) {
 		e.preventDefault();
-		
-		//data = {
-		//	'authenticity_token': $("input[name='authenticity_token']").val(),
-		//	'farm_name': $("input[name='farm[name]']").val(),
-		//	'farm_user_id': $("input[name='farm[user_id]']").val(),
-		//	'area_name': $("input[name='farm[areas_attributes][0][name]']").val(),
-		//	'area_type': $("input[name='farm[areas_attributes][0][area_type]']").val(),
-		//	'capacity': $("input[name='farm[areas_attributes][0][capacity]']").val(),
-		//	'quantity': $("input[name='farm[areas_attributes][0][quantity]']").val(),
-		//	'farm_id': $("input[name='farm[areas_attributes][0][farm_id]']").val()
-		//}
 
 		
-		$.post(this.action, $(this).serialize(), function(data) {
-			console.log(data)
-			debugger
+		$.post(this.action, $(this).serialize(), function(farm) {
+			console.log(farm)
+			$(".body-container").html('')
+			let newFarm = new Farm(farm)
+			let farmHtml = newFarm.formatShow()
+			$(".body-container").append(farmHtml)
+			farm.areas.forEach(function(area) {
+					let newArea = new Area(area)
+					let areaHtml = newArea.formatShow()
+					$(".body-container").append(areaHtml)
+				})	
 		})
 	})
 }
@@ -66,10 +63,6 @@ function Farm(farm) {
 // Prototype Method
 Farm.prototype.formatIndex = function() {
 	let farmHtml = `
-		<br><br>
-		<div class=notice id=notice><div>
-		<div class=alert id=alert><div>
-		<h1>Farms</h1>
 		<a href="/farms/${this.id}" data-id=${this.id} class="show_link">${this.name}</a><br><br>
 		<a href="/farms/new" class="add_farm_link">Add Farm</a>
 	`
@@ -99,5 +92,13 @@ Area.prototype.formatShow = function() {
 	return areaHtml
 }
 
-
+function farmHeader() {
+	let farmHeader = `
+		<br><br>
+		<div class=notice id=notice><div>
+		<div class=alert id=alert><div>
+		<h1>Farms</h1>
+	`
+	return farmHeader
+}
 
