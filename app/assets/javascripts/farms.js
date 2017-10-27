@@ -34,6 +34,13 @@ const bindClicks = () => {
 				})		
 		})
 	})
+
+	$(document).on('click','.add_farm_link', function(e) {
+		e.preventDefault();
+		$.get(this.href, function(form) {
+			debugger
+		})
+	})
 }
 
 // JS Model Object
