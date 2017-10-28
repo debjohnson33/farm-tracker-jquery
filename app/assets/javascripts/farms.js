@@ -54,7 +54,11 @@ const bindClicks = () => {
 					let newArea = new Area(area)
 					let areaHtml = newArea.formatShow()
 					$(".body-container").append(areaHtml)
-				})	
+			})	
+				let animalCount = newFarm.formatAnimalCount()
+				$(".body-container").append(animalCount)
+				let farmLinks = newFarm.formatFarmLinks()
+				$(".body-container").append(farmLinks)	
 		})
 	})
 }
