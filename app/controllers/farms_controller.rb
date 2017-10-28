@@ -5,7 +5,7 @@ class FarmsController < ApplicationController
 		@farms = current_user.farms
 		respond_to do |f|
 			f.json { render json: @farms, :layout => false}
-			f.html
+			f.html { render :index }
 		end
 	end
 
@@ -13,7 +13,7 @@ class FarmsController < ApplicationController
 		if current_user.id == @farm.user_id
 			respond_to do |f|
 				f.json { render json: @farm }
-				f.html
+				f.html { render :show }
 			end
 		else
 			redirect_to farms_path
@@ -32,7 +32,7 @@ class FarmsController < ApplicationController
 			flash[:notice] = "Farm was created."
 			respond_to do |f|
 				f.json { render json: @farm }
-				f.html
+				f.html { render :show }
 			end
 		else
 			render :new
