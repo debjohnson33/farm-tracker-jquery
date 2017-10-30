@@ -54,7 +54,9 @@ Animal.prototype.formatIndex = function() {
 	return animalHtml
 }
 
-Animal.prototype.formatShow = function() {	
+Animal.prototype.formatShow = function() {
+	let bredDate = new Date(this.date_bred)
+	let estDueDate = new Date(this.estimated_due_date)
 	let animalHtml = `
 		<h2>Your Animal:<h2>
 		<h3>${this.name}<h3>
@@ -64,22 +66,11 @@ Animal.prototype.formatShow = function() {
 		<p>Weight: ${this.weight}</p>
 		<p>Type: ${this.animal_type}</p>
 		<p>Pregnant?: ${this.pregnant}</p>
-		<p>Date bred: ${formatBredDate(this.date_bred)}</p>
-		<p>Estimated due date: ${formatDueDate(this.estimated_due_date)}</p>
+		<p>Date bred: ${bredDate.toDateString()}</p>
+		<p>Estimated due date: ${estDueDate.toDateString()}</p>
 		<p>Area: ${this.area.name}</p>
 	`
 	return animalHtml
 }
 
-Animal.prototype.formatBredDate = function() {
-	let bredDate = new Date(this.date_bred)
-
-	return bredDate.toDateString();
-
-}
-
-Animal.prototype.formatDueDate = function() {
-	let estDueDate = new Date(this.estimated_due_date)
-	return estDueDate.toDateString();
-}
 
