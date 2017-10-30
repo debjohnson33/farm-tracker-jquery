@@ -15,7 +15,7 @@ class AnimalsController < ApplicationController
 	def show
 		respond_to do |f|
 			f.json { render json: @animal }		
-			f.html { render :index }
+			f.html { render :show }
 		end	
 	end
 
