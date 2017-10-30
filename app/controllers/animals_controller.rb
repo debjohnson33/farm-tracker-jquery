@@ -13,6 +13,10 @@ class AnimalsController < ApplicationController
 	end
 
 	def show
+		respond_to do |f|
+			f.json { render json: @animal }		
+			f.html { render :index }
+		end	
 	end
 
 	def new
