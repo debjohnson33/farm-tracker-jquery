@@ -44,6 +44,7 @@ function Animal(animal) {
 	this.date_bred = animal.date_bred
 	this.estimated_due_date = animal.estimated_due_date
 	this.area_id = animal.area_id
+	this.area = animal.area
 }
 
 Animal.prototype.formatIndex = function() {
@@ -65,7 +66,7 @@ Animal.prototype.formatShow = function() {
 		<p>Pregnant?: ${this.pregnant}</p>
 		<p>Date bred: ${this.date_bred}</p>
 		<p>Estimated due date: ${this.estimated_due_date}</p>
-		<p>Area: ${this.area}</p>
+		<p>Area: ${this.area.name}</p>
 	`
 	return animalHtml
 }
