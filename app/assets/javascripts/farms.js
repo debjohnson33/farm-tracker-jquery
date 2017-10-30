@@ -5,7 +5,7 @@ $(document).ready(function() {
 const bindClicks = () => {
 	$('.all_user_farms').on('click', function(e) {
 		e.preventDefault();
-		history.pushState(null, null, "farms")
+		history.pushState(null, "farms")
 
 		$.get(this.href, function(data) {
 			$(".body-container").html(farmHeader)

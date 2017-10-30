@@ -6,13 +6,15 @@ const clickHandlers = () => {
 	$('a.load_animals').on('click', function(e) {
 		e.preventDefault();
 
-		$.get(this.href, function(data) {
+		$.get(this.url, function(data) {
 	
 			var $ol = $("#animals_list ol")
 			$ol.html("")
 
-			data.forEach(function(animal) {
-				$ol.append("<li>" + animal.name + "</li>");
+			data.animals.forEach(function(animal) {
+				let newAnimal = new Animal(animal)
+				let animalHtml = newAnimal.formatIndex()
+				$ol.append(animalHtml);
 			})
 		})
 	})
@@ -32,3 +34,9 @@ function Animal(animal) {
 	this.area_id = animal.area_id
 }
 
+Animal.prototype.formatIndex = function() {
+	let animalHtml = `
+		<li>${this.name} - ${this.animal_type}</li>
+	`
+	return animalHtml
+}
