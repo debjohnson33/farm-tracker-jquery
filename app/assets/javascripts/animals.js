@@ -1,10 +1,12 @@
 $(document).ready(function() {
-	$('a.load_animals').on('click', function(e) {
+	clickHandlers();
+})
 
-		$.ajax({
-			method: 'GET',
-			url: this.href
-		}).success(function(data) {
+const clickHandlers = () => {
+	$('a.load_animals').on('click', function(e) {
+		e.preventDefault();
+
+		$.get(this.href, function(data) {
 	
 			var $ol = $("#animals_list ol")
 			$ol.html("")
@@ -13,9 +15,8 @@ $(document).ready(function() {
 				$ol.append("<li>" + animal.name + "</li>");
 			})
 		})
-		e.preventDefault();
 	})
-})
+}
 
 function Animal(animal) {
 	this.id = animal.id
