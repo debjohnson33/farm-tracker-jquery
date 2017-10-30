@@ -18,6 +18,14 @@ const clickHandlers = () => {
 			})
 		})
 	})
+
+	$('a.show_animal').on('click', function(e) {
+		e.preventDefault();
+
+		$.get(this.url, function(data) {
+			debugger
+		})
+	})
 }
 
 function Animal(animal) {
@@ -36,7 +44,7 @@ function Animal(animal) {
 
 Animal.prototype.formatIndex = function() {
 	let animalHtml = `
-		<li>${this.name} - ${this.animal_type}</li>
+		<li><a href="/animals/${this.id}" class="show_animal">${this.name} - ${this.animal_type}</a></li>
 	`
 	return animalHtml
 }
