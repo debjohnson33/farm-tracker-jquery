@@ -13,6 +13,7 @@
 	<% end %>
 
 	Area: <%= @animal.area.name %><br><br>
+	Farm ID: <%= @animal.area.farm_id %><br><br>
 
 	<%= link_to 'Back to Farm', farm_path(@animal.area.farm) %><br><br>
 	<%= link_to 'Edit Animal', edit_animal_path(@animal) %><br><br>

@@ -70,7 +70,7 @@ Animal.prototype.formatShow = function() {
 		<p>Date bred: ${bredDate.toDateString()}</p>
 		<p>Estimated due date: ${estDueDate.toDateString()}</p>
 		<p>Area: ${this.area.name}</p><br>
-	
+		<a href="/farms/${this.area.farm_id}">Back to Farm</a><br><br>
 		<a href="/animals/${this.id}/edit">Edit Animal</a><br><br>
 		<a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/farms/${this.id}">Delete</a>
 	`
