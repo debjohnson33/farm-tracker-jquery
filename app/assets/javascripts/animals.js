@@ -26,8 +26,9 @@ const clickHandlers = () => {
 			$(".body-container").html('')
 			let newAnimal = new Animal(animal)
 			let animalHtml = newAnimal.formatShow()
-			$(".body-container").append(animalHtml)
 			//debugger
+			$(".body-container").append(animalHtml)
+			
 		})
 	})
 }
@@ -68,7 +69,10 @@ Animal.prototype.formatShow = function() {
 		<p>Pregnant?: ${this.pregnant}</p>
 		<p>Date bred: ${bredDate.toDateString()}</p>
 		<p>Estimated due date: ${estDueDate.toDateString()}</p>
-		<p>Area: ${this.area.name}</p>
+		<p>Area: ${this.area.name}</p><br>
+	
+		<a href="/animals/${this.id}/edit">Edit Animal</a><br><br>
+		<a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/farms/${this.id}">Delete</a>
 	`
 	return animalHtml
 }
