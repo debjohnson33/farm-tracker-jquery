@@ -45,7 +45,6 @@ const bindClicks = () => {
 
 		
 		$.post(this.action, $(this).serialize(), function(farm) {
-			console.log(farm)
 			$(".body-container").html('')
 			let newFarm = new Farm(farm)
 			let farmHtml = newFarm.formatShow()
