@@ -5,7 +5,7 @@ $(document).ready(function() {
 const bindClicks = () => {
 	$('.all_user_farms').on('click', function(e) {
 		e.preventDefault();
-		history.pushState(null, "farms")
+		history.pushState({}, '', $(this).attr("href"))
 
 		$.get(this.href, function(data) {
 			$(".body-container").html(farmHeader)
@@ -21,6 +21,8 @@ const bindClicks = () => {
 
 	$(document).on('click', ".show_link", function(e) {
 		e.preventDefault()
+		history.pushState({}, '', $(this).attr("href"))
+		
 		let id = parseInt($(this).attr('data-id'))
 		$.get(`/farms/${id}.json`, function(farm){
 			$(".body-container").html('')
@@ -42,7 +44,7 @@ const bindClicks = () => {
 
 	$('.new_farm').on('submit', function(e) {
 		e.preventDefault();
-
+		history.pushState({}, '', $(this).attr("href"))
 		
 		$.post(this.action, $(this).serialize(), function(farm) {
 			$(".body-container").html('')

@@ -21,6 +21,9 @@ const clickHandlers = () => {
 
 	$(document).on('click', 'a.show_animal', function(e) {
 		e.preventDefault();
+
+		history.pushState({}, '', $(this).attr("href"))
+		
 		let id = parseInt($(this).attr('data-id'))
 		$.get(`/animals/${id}.json`, function(animal) {
 			$(".body-container").html('')
