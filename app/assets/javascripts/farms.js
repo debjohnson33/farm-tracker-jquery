@@ -3,7 +3,7 @@ $(document).ready(function() {
 })
 
 const bindClicks = () => {
-	$('.all_user_farms').on('click', function(e) {
+	$(document).on('click', '.all_user_farms', function(e) {
 		e.preventDefault();
 		history.pushState({}, '', $(this).attr("href"))
 

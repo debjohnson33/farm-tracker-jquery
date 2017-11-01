@@ -3,7 +3,7 @@ $(document).ready(function() {
 })
 
 const bindClickHandlers = () => {
-	$('.js-next').on('click', function() {
+	$(document).on('click', '.js-next', function() {
 		var nextId = parseInt($(".js-next").attr("data-id")) + 1;
 		$.get("/areas/" + nextId + ".json", function(data) {
 			formatShow(data)
