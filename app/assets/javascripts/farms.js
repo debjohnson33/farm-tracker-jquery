@@ -42,6 +42,14 @@ const bindClicks = () => {
 		})
 	})
 
+	$(document).on('click', ".add_farm", function(e) {
+		e.preventDefault()
+		history.pushState({}, '', $(this).attr("href"))
+
+		console.log("Captured link!")
+
+	})
+
 	$('.new_farm').on('submit', function(e) {
 		e.preventDefault();
 		history.pushState({}, '', $(this).attr("href"))
