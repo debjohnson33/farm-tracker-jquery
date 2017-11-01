@@ -22,7 +22,7 @@ const bindClicks = () => {
 	$(document).on('click', ".show_link", function(e) {
 		e.preventDefault()
 		history.pushState({}, '', $(this).attr("href"))
-		
+
 		let id = parseInt($(this).attr('data-id'))
 		$.get(`/farms/${id}.json`, function(farm){
 			$(".body-container").html('')
@@ -130,7 +130,7 @@ Farm.prototype.formatAnimalCount = function() {
 
 Farm.prototype.formatFarmLinks = function() {
 	let farmLinks = `
-		<a href="/farms/${this.id}/animals">Animals</a><br><br>
+		<a href="/farms/${this.id}/animals" class="load_animals">Animals</a><br><br>
 		<a href="/farms/${this.id}/areas/new">Add Area</a><br><br>
 		<a href="/farms/${this.id}/animals/new">Add Animal</a><br><br>
 		<a href="/farms/${this.id}/edit">Edit Farm</a><br><br>
