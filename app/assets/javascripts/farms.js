@@ -130,6 +130,9 @@ Farm.prototype.formatAnimalCount = function() {
 
 Farm.prototype.formatFarmLinks = function() {
 	let farmLinks = `
+		<div id="animals_list">
+		<ol></ol>
+		</div>
 		<a href="/farms/${this.id}/animals" class="load_animals">Animals</a><br><br>
 		<a href="/farms/${this.id}/areas/new">Add Area</a><br><br>
 		<a href="/farms/${this.id}/animals/new">Add Animal</a><br><br>

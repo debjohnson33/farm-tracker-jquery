@@ -3,11 +3,11 @@ $(document).ready(function() {
 })
 
 const clickHandlers = () => {
-	$('a.load_animals').on('click', function(e) {
+	$(document).on('click', 'a.load_animals', function(e) {
 		e.preventDefault();
 
 		$.get(this.url, function(data) {
-	
+			debugger
 			var $ol = $("#animals_list ol")
 			$ol.html("")
 
@@ -23,7 +23,7 @@ const clickHandlers = () => {
 		e.preventDefault();
 
 		history.pushState({}, '', $(this).attr("href"))
-		
+
 		let id = parseInt($(this).attr('data-id'))
 		$.get(`/animals/${id}.json`, function(animal) {
 			$(".body-container").html('')
