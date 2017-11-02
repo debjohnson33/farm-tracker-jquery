@@ -43,9 +43,9 @@ const bindClicks = () => {
 	})
 
 
-	$('.new_farm').on('submit', function(e) {
+	$(document).on('submit', '.new_farm', function(e) {
 		e.preventDefault();
-		history.pushState({}, '', $(this).attr("href"))
+		//history.pushState({}, '', $(this).attr("href"))
 		
 		$.post(this.action, $(this).serialize(), function(farm) {
 			$(".body-container").html('')
