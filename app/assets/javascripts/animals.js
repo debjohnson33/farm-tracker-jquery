@@ -7,15 +7,21 @@ const clickHandlers = () => {
 		e.preventDefault();
 
 		$.get(this.url, function(data) {
-			//debugger
 			var $ol = $("#animals_list ol")
-			$ol.html("")
-
-			data.animals.forEach(function(animal) {
-				let newAnimal = new Animal(animal)
-				let animalHtml = newAnimal.formatIndex()
+			if (data.animals.length === 0) {
+				let animalHtml = `No animals yet`
 				$ol.append(animalHtml);
-			})
+			} else {
+				
+				
+				$ol.html("")
+
+				data.animals.forEach(function(animal) {
+					let newAnimal = new Animal(animal)
+					let animalHtml = newAnimal.formatIndex()
+					$ol.append(animalHtml);
+				})
+			}
 		})
 	})
 
