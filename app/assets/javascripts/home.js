@@ -5,6 +5,7 @@ $(document).ready(function() {
 const onClickHandlers = () => {
 	$(document).on('click', 'a.navbar-brand', function(e) {
 		e.preventDefault();
+		history.pushState({}, '', $(this).attr("href"))
 		$(".body-container").html('')
 		$(".body-container").append(formatHome());
 	})

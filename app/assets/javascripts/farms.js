@@ -42,7 +42,7 @@ const bindClicks = () => {
 		})
 	})
 
-	$(document).on('click', ".add_farm", function(e) {
+	$(document).on('click', ".add_farm_link", function(e) {
 		e.preventDefault()
 		history.pushState({}, '', $(this).attr("href"))
 

@@ -7,7 +7,7 @@ const clickHandlers = () => {
 		e.preventDefault();
 
 		$.get(this.url, function(data) {
-			
+			//debugger
 			var $ol = $("#animals_list ol")
 			$ol.html("")
 
