@@ -43,7 +43,7 @@ const bindClicks = () => {
 	})
 
 
-	$(document).on('submit', '.new_farm', function(e) {
+	$('.new_farm').on('submit', function(e) {
 		e.preventDefault();
 		//history.pushState({}, '', $(this).attr("href"))
 		
