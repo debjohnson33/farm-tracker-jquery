@@ -8,13 +8,18 @@ const bindClicks = () => {
 		history.pushState({}, '', $(this).attr("href"))
 
 		$.get(this.href, function(data) {
-			$(".body-container").html(farmHeader)
-			data.forEach(function(farm) {
+			$(".main-body").html(farmHeader)
+			
+			data.sort(function (a, b) {
+				return a.areas.length - b.areas.length
+		
+			})
+			.forEach(function(farm) {
 				let newFarm = new Farm(farm)
 				let farmHtml = newFarm.formatIndex()
-				$(".body-container").append(farmHtml)
+				$(".main-body").append(farmHtml)
 			})
-			$(".body-container").append(farmFooter)
+			$(".main-body").append(farmFooter)
 		})
 		
 	})
@@ -25,42 +30,43 @@ const bindClicks = () => {
 
 		let id = parseInt($(this).attr('data-id'))
 		$.get(`/farms/${id}.json`, function(farm){
-			$(".body-container").html('')
+			$(".main-body").html('')
 				let newFarm = new Farm(farm)
 				let farmHtml = newFarm.formatShow()
-				$(".body-container").append(farmHtml)
+				$(".main-body").append(farmHtml)
 
 				farm.areas.forEach(function(area) {
 					let newArea = new Area(area)
 					let areaHtml = newArea.formatShow()
-					$(".body-container").append(areaHtml)
+					$(".main-body").append(areaHtml)
 				})
 				let animalCount = newFarm.formatAnimalCount()
-				$(".body-container").append(animalCount)
+				$(".main-body").append(animalCount)
 				let farmLinks = newFarm.formatFarmLinks()
-				$(".body-container").append(farmLinks)		
+				$(".main-body").append(farmLinks)		
 		})
 	})
 
 
 	$('.new_farm').on('submit', function(e) {
+		console.log()
 		e.preventDefault();
 		//history.pushState({}, '', $(this).attr("href"))
 		
 		$.post(this.action, $(this).serialize(), function(farm) {
-			$(".body-container").html('')
+			$(".main-body").html('')
 			let newFarm = new Farm(farm)
 			let farmHtml = newFarm.formatShow()
-			$(".body-container").append(farmHtml)
+			$(".main-body").append(farmHtml)
 			farm.areas.forEach(function(area) {
 					let newArea = new Area(area)
 					let areaHtml = newArea.formatShow()
-					$(".body-container").append(areaHtml)
+					$(".main-body").append(areaHtml)
 			})	
 				let animalCount = newFarm.formatAnimalCount()
-				$(".body-container").append(animalCount)
+				$(".main-body").append(animalCount)
 				let farmLinks = newFarm.formatFarmLinks()
-				$(".body-container").append(farmLinks)	
+				$(".main-body").append(farmLinks)	
 		})
 	})
 }
@@ -82,9 +88,6 @@ Farm.prototype.formatIndex = function() {
 
 Farm.prototype.formatShow = function() {
 	let farmHtml = `
-		<br><br>
-		<div class=notice id=notice><div>
-		<div class=alert id=alert><div>
 		<h2>Farm</h2>
 		<p>Name: ${this.name}</p>
 	`
@@ -104,13 +107,7 @@ Area.prototype.formatShow = function() {
 }
 
 function farmHeader() {
-	let farmHeader = `
-		<br><br>
-		<div class=notice id=notice><div>
-		<div class=alert id=alert><div>
-		<h1>Farms</h1>
-	`
-	return farmHeader
+	return `<h1>Farms</h1>`
 }
 
 function farmFooter() {

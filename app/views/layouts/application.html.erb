@@ -39,9 +39,11 @@
   <div class="container" role="main">
   <br><br>
     <div class="body-container" >
-  <%= render '/layouts/alerts' %>
+      <%= render '/layouts/alerts' %>
 
-    <%= yield %>
+      <div class="main-body">
+        <%= yield %>
+      </div>
     </div>
   </div>
   </body>
