@@ -6,9 +6,9 @@ const clickHandlers = () => {
 	$(document).on('click', 'a.load_animals', function(e) {
 		e.preventDefault();
 
-		$.get(this.url, function(data) {
+		$.get(this.href, function(data) {
 			var $ol = $("#animals_list ol")
-			if (data.animals.length === 0) {
+			if (data.length === 0) {
 				let animalHtml = `No animals yet`
 				$ol.append(animalHtml);
 			} else {
@@ -16,7 +16,7 @@ const clickHandlers = () => {
 				
 				$ol.html("")
 
-				data.animals.forEach(function(animal) {
+				data.forEach(function(animal) {
 					let newAnimal = new Animal(animal)
 					let animalHtml = newAnimal.formatIndex()
 					$ol.append(animalHtml);
