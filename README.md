@@ -1,3 +1,7 @@
+# Deprecation
+
+Please note that this repo is no longer being updated.
+
 # Farm Tracker
 
 Usage
